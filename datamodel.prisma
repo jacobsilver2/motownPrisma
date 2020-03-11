@@ -1,4 +1,45 @@
-type User {
+type Song {
   id: ID! @id
-  name: String!
+  title: String! @unique
+  composer: String
+  publisher: String
+  publishedDate: String
+  altTitle: String
+  instrumental: String
+  fromFilm: String
+  tribute: String
+  artists: [Artist!]! 
+  albums: [Album!]! 
+  recordings: [Recording!]! 
+}
+
+type Artist {
+  id: ID! @id
+  name: String! @unique
+  songs: [Song!]! 
+  albums: [Album!]! @relations(name: allAlbums) 
+  recordings: [Recording!]! @relations(name: allRecordings)
+}
+
+type Album {
+  id: ID! @id
+  title: String! @unique
+  catalogNumber: String @unique
+  format: String
+  info: String
+  releaseDate: String
+  recordLabel: String!
+  songs: [Song!]! 
+  artists: [Artist!]! @relations(name: allAritsts)
+  recordings: [Recording!]! @relations(name: allRecordings)
+}
+
+type Recording {
+  id: ID! @id
+  producer: String
+  location: String
+  completed: String
+  artist: Artist @relations(name: allAritsts)
+  song: Song! 
+  albums: [Album!]! @relations(name: allAlbums)
 }
