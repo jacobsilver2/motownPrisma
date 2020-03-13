@@ -23,14 +23,14 @@ type Artist {
 
 type Album {
   id: ID! @id
-  title: String! @unique
+  title: String @unique
   catalogNumber: String @unique
   format: String
-  info: String
+  info: String @unique
   releaseDate: String
-  recordLabel: String!
+  recordLabel: String
   songs: [Song!]! 
-  artists: [Artist!]! @relations(name: allAritsts)
+  artists: [Artist!]! @relations(name: allArtists)
   recordings: [Recording!]! @relations(name: allRecordings)
 }
 
