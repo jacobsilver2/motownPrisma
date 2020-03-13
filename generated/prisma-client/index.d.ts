@@ -272,11 +272,785 @@ export type RecordingOrderByInput =
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
+export interface RecordingUpdateWithoutAlbumsDataInput {
+  producer?: Maybe<String>;
+  location?: Maybe<String>;
+  completed?: Maybe<String>;
+  artist?: Maybe<ArtistUpdateOneWithoutRecordingsInput>;
+  song?: Maybe<SongUpdateOneRequiredWithoutRecordingsInput>;
+}
+
 export type AlbumWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   title?: Maybe<String>;
   catalogNumber?: Maybe<String>;
+  info?: Maybe<String>;
 }>;
+
+export interface SongUpdateWithWhereUniqueWithoutArtistsInput {
+  where: SongWhereUniqueInput;
+  data: SongUpdateWithoutArtistsDataInput;
+}
+
+export interface RecordingWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  producer?: Maybe<String>;
+  producer_not?: Maybe<String>;
+  producer_in?: Maybe<String[] | String>;
+  producer_not_in?: Maybe<String[] | String>;
+  producer_lt?: Maybe<String>;
+  producer_lte?: Maybe<String>;
+  producer_gt?: Maybe<String>;
+  producer_gte?: Maybe<String>;
+  producer_contains?: Maybe<String>;
+  producer_not_contains?: Maybe<String>;
+  producer_starts_with?: Maybe<String>;
+  producer_not_starts_with?: Maybe<String>;
+  producer_ends_with?: Maybe<String>;
+  producer_not_ends_with?: Maybe<String>;
+  location?: Maybe<String>;
+  location_not?: Maybe<String>;
+  location_in?: Maybe<String[] | String>;
+  location_not_in?: Maybe<String[] | String>;
+  location_lt?: Maybe<String>;
+  location_lte?: Maybe<String>;
+  location_gt?: Maybe<String>;
+  location_gte?: Maybe<String>;
+  location_contains?: Maybe<String>;
+  location_not_contains?: Maybe<String>;
+  location_starts_with?: Maybe<String>;
+  location_not_starts_with?: Maybe<String>;
+  location_ends_with?: Maybe<String>;
+  location_not_ends_with?: Maybe<String>;
+  completed?: Maybe<String>;
+  completed_not?: Maybe<String>;
+  completed_in?: Maybe<String[] | String>;
+  completed_not_in?: Maybe<String[] | String>;
+  completed_lt?: Maybe<String>;
+  completed_lte?: Maybe<String>;
+  completed_gt?: Maybe<String>;
+  completed_gte?: Maybe<String>;
+  completed_contains?: Maybe<String>;
+  completed_not_contains?: Maybe<String>;
+  completed_starts_with?: Maybe<String>;
+  completed_not_starts_with?: Maybe<String>;
+  completed_ends_with?: Maybe<String>;
+  completed_not_ends_with?: Maybe<String>;
+  artist?: Maybe<ArtistWhereInput>;
+  song?: Maybe<SongWhereInput>;
+  albums_every?: Maybe<AlbumWhereInput>;
+  albums_some?: Maybe<AlbumWhereInput>;
+  albums_none?: Maybe<AlbumWhereInput>;
+  AND?: Maybe<RecordingWhereInput[] | RecordingWhereInput>;
+  OR?: Maybe<RecordingWhereInput[] | RecordingWhereInput>;
+  NOT?: Maybe<RecordingWhereInput[] | RecordingWhereInput>;
+}
+
+export interface SongUpdateWithWhereUniqueWithoutAlbumsInput {
+  where: SongWhereUniqueInput;
+  data: SongUpdateWithoutAlbumsDataInput;
+}
+
+export interface SongUpdateManyDataInput {
+  title?: Maybe<String>;
+  composer?: Maybe<String>;
+  publisher?: Maybe<String>;
+  publishedDate?: Maybe<String>;
+  altTitle?: Maybe<String>;
+  instrumental?: Maybe<String>;
+  fromFilm?: Maybe<String>;
+  tribute?: Maybe<String>;
+}
+
+export interface SongUpdateWithoutAlbumsDataInput {
+  title?: Maybe<String>;
+  composer?: Maybe<String>;
+  publisher?: Maybe<String>;
+  publishedDate?: Maybe<String>;
+  altTitle?: Maybe<String>;
+  instrumental?: Maybe<String>;
+  fromFilm?: Maybe<String>;
+  tribute?: Maybe<String>;
+  artists?: Maybe<ArtistUpdateManyWithoutSongsInput>;
+  recordings?: Maybe<RecordingUpdateManyWithoutSongInput>;
+}
+
+export interface SongUpdateWithoutArtistsDataInput {
+  title?: Maybe<String>;
+  composer?: Maybe<String>;
+  publisher?: Maybe<String>;
+  publishedDate?: Maybe<String>;
+  altTitle?: Maybe<String>;
+  instrumental?: Maybe<String>;
+  fromFilm?: Maybe<String>;
+  tribute?: Maybe<String>;
+  albums?: Maybe<AlbumUpdateManyWithoutSongsInput>;
+  recordings?: Maybe<RecordingUpdateManyWithoutSongInput>;
+}
+
+export interface ArtistUpdateManyWithoutSongsInput {
+  create?: Maybe<
+    ArtistCreateWithoutSongsInput[] | ArtistCreateWithoutSongsInput
+  >;
+  delete?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
+  connect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
+  set?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
+  disconnect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
+  update?: Maybe<
+    | ArtistUpdateWithWhereUniqueWithoutSongsInput[]
+    | ArtistUpdateWithWhereUniqueWithoutSongsInput
+  >;
+  upsert?: Maybe<
+    | ArtistUpsertWithWhereUniqueWithoutSongsInput[]
+    | ArtistUpsertWithWhereUniqueWithoutSongsInput
+  >;
+  deleteMany?: Maybe<ArtistScalarWhereInput[] | ArtistScalarWhereInput>;
+  updateMany?: Maybe<
+    | ArtistUpdateManyWithWhereNestedInput[]
+    | ArtistUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface SongSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<SongWhereInput>;
+  AND?: Maybe<SongSubscriptionWhereInput[] | SongSubscriptionWhereInput>;
+  OR?: Maybe<SongSubscriptionWhereInput[] | SongSubscriptionWhereInput>;
+  NOT?: Maybe<SongSubscriptionWhereInput[] | SongSubscriptionWhereInput>;
+}
+
+export interface ArtistUpdateWithWhereUniqueWithoutSongsInput {
+  where: ArtistWhereUniqueInput;
+  data: ArtistUpdateWithoutSongsDataInput;
+}
+
+export interface RecordingSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<RecordingWhereInput>;
+  AND?: Maybe<
+    RecordingSubscriptionWhereInput[] | RecordingSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    RecordingSubscriptionWhereInput[] | RecordingSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    RecordingSubscriptionWhereInput[] | RecordingSubscriptionWhereInput
+  >;
+}
+
+export interface ArtistUpdateWithoutSongsDataInput {
+  name?: Maybe<String>;
+  albums?: Maybe<AlbumUpdateManyWithoutArtistsInput>;
+  recordings?: Maybe<RecordingUpdateManyWithoutArtistInput>;
+}
+
+export interface AlbumSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<AlbumWhereInput>;
+  AND?: Maybe<AlbumSubscriptionWhereInput[] | AlbumSubscriptionWhereInput>;
+  OR?: Maybe<AlbumSubscriptionWhereInput[] | AlbumSubscriptionWhereInput>;
+  NOT?: Maybe<AlbumSubscriptionWhereInput[] | AlbumSubscriptionWhereInput>;
+}
+
+export interface AlbumUpdateManyWithoutArtistsInput {
+  create?: Maybe<
+    AlbumCreateWithoutArtistsInput[] | AlbumCreateWithoutArtistsInput
+  >;
+  delete?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
+  connect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
+  set?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
+  disconnect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
+  update?: Maybe<
+    | AlbumUpdateWithWhereUniqueWithoutArtistsInput[]
+    | AlbumUpdateWithWhereUniqueWithoutArtistsInput
+  >;
+  upsert?: Maybe<
+    | AlbumUpsertWithWhereUniqueWithoutArtistsInput[]
+    | AlbumUpsertWithWhereUniqueWithoutArtistsInput
+  >;
+  deleteMany?: Maybe<AlbumScalarWhereInput[] | AlbumScalarWhereInput>;
+  updateMany?: Maybe<
+    AlbumUpdateManyWithWhereNestedInput[] | AlbumUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface SongUpdateInput {
+  title?: Maybe<String>;
+  composer?: Maybe<String>;
+  publisher?: Maybe<String>;
+  publishedDate?: Maybe<String>;
+  altTitle?: Maybe<String>;
+  instrumental?: Maybe<String>;
+  fromFilm?: Maybe<String>;
+  tribute?: Maybe<String>;
+  artists?: Maybe<ArtistUpdateManyWithoutSongsInput>;
+  albums?: Maybe<AlbumUpdateManyWithoutSongsInput>;
+  recordings?: Maybe<RecordingUpdateManyWithoutSongInput>;
+}
+
+export interface AlbumUpdateWithWhereUniqueWithoutArtistsInput {
+  where: AlbumWhereUniqueInput;
+  data: AlbumUpdateWithoutArtistsDataInput;
+}
+
+export interface RecordingUpdateManyMutationInput {
+  producer?: Maybe<String>;
+  location?: Maybe<String>;
+  completed?: Maybe<String>;
+}
+
+export interface AlbumUpdateWithoutArtistsDataInput {
+  title?: Maybe<String>;
+  catalogNumber?: Maybe<String>;
+  format?: Maybe<String>;
+  info?: Maybe<String>;
+  releaseDate?: Maybe<String>;
+  recordLabel?: Maybe<String>;
+  songs?: Maybe<SongUpdateManyWithoutAlbumsInput>;
+  recordings?: Maybe<RecordingUpdateManyWithoutAlbumsInput>;
+}
+
+export interface RecordingUpdateInput {
+  producer?: Maybe<String>;
+  location?: Maybe<String>;
+  completed?: Maybe<String>;
+  artist?: Maybe<ArtistUpdateOneWithoutRecordingsInput>;
+  song?: Maybe<SongUpdateOneRequiredWithoutRecordingsInput>;
+  albums?: Maybe<AlbumUpdateManyWithoutRecordingsInput>;
+}
+
+export interface RecordingUpdateManyWithoutAlbumsInput {
+  create?: Maybe<
+    RecordingCreateWithoutAlbumsInput[] | RecordingCreateWithoutAlbumsInput
+  >;
+  delete?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
+  connect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
+  set?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
+  disconnect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
+  update?: Maybe<
+    | RecordingUpdateWithWhereUniqueWithoutAlbumsInput[]
+    | RecordingUpdateWithWhereUniqueWithoutAlbumsInput
+  >;
+  upsert?: Maybe<
+    | RecordingUpsertWithWhereUniqueWithoutAlbumsInput[]
+    | RecordingUpsertWithWhereUniqueWithoutAlbumsInput
+  >;
+  deleteMany?: Maybe<RecordingScalarWhereInput[] | RecordingScalarWhereInput>;
+  updateMany?: Maybe<
+    | RecordingUpdateManyWithWhereNestedInput[]
+    | RecordingUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface ArtistUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export interface RecordingUpdateWithWhereUniqueWithoutAlbumsInput {
+  where: RecordingWhereUniqueInput;
+  data: RecordingUpdateWithoutAlbumsDataInput;
+}
+
+export interface ArtistUpdateInput {
+  name?: Maybe<String>;
+  songs?: Maybe<SongUpdateManyWithoutArtistsInput>;
+  albums?: Maybe<AlbumUpdateManyWithoutArtistsInput>;
+  recordings?: Maybe<RecordingUpdateManyWithoutArtistInput>;
+}
+
+export interface RecordingUpsertWithWhereUniqueWithoutAlbumsInput {
+  where: RecordingWhereUniqueInput;
+  update: RecordingUpdateWithoutAlbumsDataInput;
+  create: RecordingCreateWithoutAlbumsInput;
+}
+
+export interface AlbumUpdateManyMutationInput {
+  title?: Maybe<String>;
+  catalogNumber?: Maybe<String>;
+  format?: Maybe<String>;
+  info?: Maybe<String>;
+  releaseDate?: Maybe<String>;
+  recordLabel?: Maybe<String>;
+}
+
+export interface ArtistUpdateOneWithoutRecordingsInput {
+  create?: Maybe<ArtistCreateWithoutRecordingsInput>;
+  update?: Maybe<ArtistUpdateWithoutRecordingsDataInput>;
+  upsert?: Maybe<ArtistUpsertWithoutRecordingsInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<ArtistWhereUniqueInput>;
+}
+
+export interface SongUpsertWithWhereUniqueWithoutAlbumsInput {
+  where: SongWhereUniqueInput;
+  update: SongUpdateWithoutAlbumsDataInput;
+  create: SongCreateWithoutAlbumsInput;
+}
+
+export interface ArtistUpdateWithoutRecordingsDataInput {
+  name?: Maybe<String>;
+  songs?: Maybe<SongUpdateManyWithoutArtistsInput>;
+  albums?: Maybe<AlbumUpdateManyWithoutArtistsInput>;
+}
+
+export interface AlbumUpsertWithWhereUniqueWithoutArtistsInput {
+  where: AlbumWhereUniqueInput;
+  update: AlbumUpdateWithoutArtistsDataInput;
+  create: AlbumCreateWithoutArtistsInput;
+}
+
+export interface SongUpdateManyWithoutArtistsInput {
+  create?: Maybe<
+    SongCreateWithoutArtistsInput[] | SongCreateWithoutArtistsInput
+  >;
+  delete?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
+  connect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
+  set?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
+  disconnect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
+  update?: Maybe<
+    | SongUpdateWithWhereUniqueWithoutArtistsInput[]
+    | SongUpdateWithWhereUniqueWithoutArtistsInput
+  >;
+  upsert?: Maybe<
+    | SongUpsertWithWhereUniqueWithoutArtistsInput[]
+    | SongUpsertWithWhereUniqueWithoutArtistsInput
+  >;
+  deleteMany?: Maybe<SongScalarWhereInput[] | SongScalarWhereInput>;
+  updateMany?: Maybe<
+    SongUpdateManyWithWhereNestedInput[] | SongUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface AlbumCreateInput {
+  id?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  catalogNumber?: Maybe<String>;
+  format?: Maybe<String>;
+  info?: Maybe<String>;
+  releaseDate?: Maybe<String>;
+  recordLabel?: Maybe<String>;
+  songs?: Maybe<SongCreateManyWithoutAlbumsInput>;
+  artists?: Maybe<ArtistCreateManyWithoutAlbumsInput>;
+  recordings?: Maybe<RecordingCreateManyWithoutAlbumsInput>;
+}
+
+export interface AlbumWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  catalogNumber?: Maybe<String>;
+  catalogNumber_not?: Maybe<String>;
+  catalogNumber_in?: Maybe<String[] | String>;
+  catalogNumber_not_in?: Maybe<String[] | String>;
+  catalogNumber_lt?: Maybe<String>;
+  catalogNumber_lte?: Maybe<String>;
+  catalogNumber_gt?: Maybe<String>;
+  catalogNumber_gte?: Maybe<String>;
+  catalogNumber_contains?: Maybe<String>;
+  catalogNumber_not_contains?: Maybe<String>;
+  catalogNumber_starts_with?: Maybe<String>;
+  catalogNumber_not_starts_with?: Maybe<String>;
+  catalogNumber_ends_with?: Maybe<String>;
+  catalogNumber_not_ends_with?: Maybe<String>;
+  format?: Maybe<String>;
+  format_not?: Maybe<String>;
+  format_in?: Maybe<String[] | String>;
+  format_not_in?: Maybe<String[] | String>;
+  format_lt?: Maybe<String>;
+  format_lte?: Maybe<String>;
+  format_gt?: Maybe<String>;
+  format_gte?: Maybe<String>;
+  format_contains?: Maybe<String>;
+  format_not_contains?: Maybe<String>;
+  format_starts_with?: Maybe<String>;
+  format_not_starts_with?: Maybe<String>;
+  format_ends_with?: Maybe<String>;
+  format_not_ends_with?: Maybe<String>;
+  info?: Maybe<String>;
+  info_not?: Maybe<String>;
+  info_in?: Maybe<String[] | String>;
+  info_not_in?: Maybe<String[] | String>;
+  info_lt?: Maybe<String>;
+  info_lte?: Maybe<String>;
+  info_gt?: Maybe<String>;
+  info_gte?: Maybe<String>;
+  info_contains?: Maybe<String>;
+  info_not_contains?: Maybe<String>;
+  info_starts_with?: Maybe<String>;
+  info_not_starts_with?: Maybe<String>;
+  info_ends_with?: Maybe<String>;
+  info_not_ends_with?: Maybe<String>;
+  releaseDate?: Maybe<String>;
+  releaseDate_not?: Maybe<String>;
+  releaseDate_in?: Maybe<String[] | String>;
+  releaseDate_not_in?: Maybe<String[] | String>;
+  releaseDate_lt?: Maybe<String>;
+  releaseDate_lte?: Maybe<String>;
+  releaseDate_gt?: Maybe<String>;
+  releaseDate_gte?: Maybe<String>;
+  releaseDate_contains?: Maybe<String>;
+  releaseDate_not_contains?: Maybe<String>;
+  releaseDate_starts_with?: Maybe<String>;
+  releaseDate_not_starts_with?: Maybe<String>;
+  releaseDate_ends_with?: Maybe<String>;
+  releaseDate_not_ends_with?: Maybe<String>;
+  recordLabel?: Maybe<String>;
+  recordLabel_not?: Maybe<String>;
+  recordLabel_in?: Maybe<String[] | String>;
+  recordLabel_not_in?: Maybe<String[] | String>;
+  recordLabel_lt?: Maybe<String>;
+  recordLabel_lte?: Maybe<String>;
+  recordLabel_gt?: Maybe<String>;
+  recordLabel_gte?: Maybe<String>;
+  recordLabel_contains?: Maybe<String>;
+  recordLabel_not_contains?: Maybe<String>;
+  recordLabel_starts_with?: Maybe<String>;
+  recordLabel_not_starts_with?: Maybe<String>;
+  recordLabel_ends_with?: Maybe<String>;
+  recordLabel_not_ends_with?: Maybe<String>;
+  songs_every?: Maybe<SongWhereInput>;
+  songs_some?: Maybe<SongWhereInput>;
+  songs_none?: Maybe<SongWhereInput>;
+  artists_every?: Maybe<ArtistWhereInput>;
+  artists_some?: Maybe<ArtistWhereInput>;
+  artists_none?: Maybe<ArtistWhereInput>;
+  recordings_every?: Maybe<RecordingWhereInput>;
+  recordings_some?: Maybe<RecordingWhereInput>;
+  recordings_none?: Maybe<RecordingWhereInput>;
+  AND?: Maybe<AlbumWhereInput[] | AlbumWhereInput>;
+  OR?: Maybe<AlbumWhereInput[] | AlbumWhereInput>;
+  NOT?: Maybe<AlbumWhereInput[] | AlbumWhereInput>;
+}
+
+export interface SongCreateWithoutAlbumsInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  composer?: Maybe<String>;
+  publisher?: Maybe<String>;
+  publishedDate?: Maybe<String>;
+  altTitle?: Maybe<String>;
+  instrumental?: Maybe<String>;
+  fromFilm?: Maybe<String>;
+  tribute?: Maybe<String>;
+  artists?: Maybe<ArtistCreateManyWithoutSongsInput>;
+  recordings?: Maybe<RecordingCreateManyWithoutSongInput>;
+}
+
+export interface ArtistUpsertWithoutRecordingsInput {
+  update: ArtistUpdateWithoutRecordingsDataInput;
+  create: ArtistCreateWithoutRecordingsInput;
+}
+
+export interface ArtistCreateWithoutSongsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  albums?: Maybe<AlbumCreateManyWithoutArtistsInput>;
+  recordings?: Maybe<RecordingCreateManyWithoutArtistInput>;
+}
+
+export interface AlbumUpdateManyWithoutSongsInput {
+  create?: Maybe<AlbumCreateWithoutSongsInput[] | AlbumCreateWithoutSongsInput>;
+  delete?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
+  connect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
+  set?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
+  disconnect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
+  update?: Maybe<
+    | AlbumUpdateWithWhereUniqueWithoutSongsInput[]
+    | AlbumUpdateWithWhereUniqueWithoutSongsInput
+  >;
+  upsert?: Maybe<
+    | AlbumUpsertWithWhereUniqueWithoutSongsInput[]
+    | AlbumUpsertWithWhereUniqueWithoutSongsInput
+  >;
+  deleteMany?: Maybe<AlbumScalarWhereInput[] | AlbumScalarWhereInput>;
+  updateMany?: Maybe<
+    AlbumUpdateManyWithWhereNestedInput[] | AlbumUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface AlbumCreateWithoutArtistsInput {
+  id?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  catalogNumber?: Maybe<String>;
+  format?: Maybe<String>;
+  info?: Maybe<String>;
+  releaseDate?: Maybe<String>;
+  recordLabel?: Maybe<String>;
+  songs?: Maybe<SongCreateManyWithoutAlbumsInput>;
+  recordings?: Maybe<RecordingCreateManyWithoutAlbumsInput>;
+}
+
+export interface AlbumUpdateWithWhereUniqueWithoutSongsInput {
+  where: AlbumWhereUniqueInput;
+  data: AlbumUpdateWithoutSongsDataInput;
+}
+
+export interface RecordingCreateWithoutAlbumsInput {
+  id?: Maybe<ID_Input>;
+  producer?: Maybe<String>;
+  location?: Maybe<String>;
+  completed?: Maybe<String>;
+  artist?: Maybe<ArtistCreateOneWithoutRecordingsInput>;
+  song: SongCreateOneWithoutRecordingsInput;
+}
+
+export interface AlbumUpdateWithoutSongsDataInput {
+  title?: Maybe<String>;
+  catalogNumber?: Maybe<String>;
+  format?: Maybe<String>;
+  info?: Maybe<String>;
+  releaseDate?: Maybe<String>;
+  recordLabel?: Maybe<String>;
+  artists?: Maybe<ArtistUpdateManyWithoutAlbumsInput>;
+  recordings?: Maybe<RecordingUpdateManyWithoutAlbumsInput>;
+}
+
+export interface ArtistCreateWithoutRecordingsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  songs?: Maybe<SongCreateManyWithoutArtistsInput>;
+  albums?: Maybe<AlbumCreateManyWithoutArtistsInput>;
+}
+
+export interface ArtistUpdateManyWithoutAlbumsInput {
+  create?: Maybe<
+    ArtistCreateWithoutAlbumsInput[] | ArtistCreateWithoutAlbumsInput
+  >;
+  delete?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
+  connect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
+  set?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
+  disconnect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
+  update?: Maybe<
+    | ArtistUpdateWithWhereUniqueWithoutAlbumsInput[]
+    | ArtistUpdateWithWhereUniqueWithoutAlbumsInput
+  >;
+  upsert?: Maybe<
+    | ArtistUpsertWithWhereUniqueWithoutAlbumsInput[]
+    | ArtistUpsertWithWhereUniqueWithoutAlbumsInput
+  >;
+  deleteMany?: Maybe<ArtistScalarWhereInput[] | ArtistScalarWhereInput>;
+  updateMany?: Maybe<
+    | ArtistUpdateManyWithWhereNestedInput[]
+    | ArtistUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface SongCreateWithoutArtistsInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  composer?: Maybe<String>;
+  publisher?: Maybe<String>;
+  publishedDate?: Maybe<String>;
+  altTitle?: Maybe<String>;
+  instrumental?: Maybe<String>;
+  fromFilm?: Maybe<String>;
+  tribute?: Maybe<String>;
+  albums?: Maybe<AlbumCreateManyWithoutSongsInput>;
+  recordings?: Maybe<RecordingCreateManyWithoutSongInput>;
+}
+
+export interface ArtistUpdateWithWhereUniqueWithoutAlbumsInput {
+  where: ArtistWhereUniqueInput;
+  data: ArtistUpdateWithoutAlbumsDataInput;
+}
+
+export interface AlbumCreateWithoutSongsInput {
+  id?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  catalogNumber?: Maybe<String>;
+  format?: Maybe<String>;
+  info?: Maybe<String>;
+  releaseDate?: Maybe<String>;
+  recordLabel?: Maybe<String>;
+  artists?: Maybe<ArtistCreateManyWithoutAlbumsInput>;
+  recordings?: Maybe<RecordingCreateManyWithoutAlbumsInput>;
+}
+
+export interface ArtistUpdateWithoutAlbumsDataInput {
+  name?: Maybe<String>;
+  songs?: Maybe<SongUpdateManyWithoutArtistsInput>;
+  recordings?: Maybe<RecordingUpdateManyWithoutArtistInput>;
+}
+
+export interface ArtistCreateWithoutAlbumsInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  songs?: Maybe<SongCreateManyWithoutArtistsInput>;
+  recordings?: Maybe<RecordingCreateManyWithoutArtistInput>;
+}
+
+export interface RecordingUpdateManyWithoutArtistInput {
+  create?: Maybe<
+    RecordingCreateWithoutArtistInput[] | RecordingCreateWithoutArtistInput
+  >;
+  delete?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
+  connect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
+  set?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
+  disconnect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
+  update?: Maybe<
+    | RecordingUpdateWithWhereUniqueWithoutArtistInput[]
+    | RecordingUpdateWithWhereUniqueWithoutArtistInput
+  >;
+  upsert?: Maybe<
+    | RecordingUpsertWithWhereUniqueWithoutArtistInput[]
+    | RecordingUpsertWithWhereUniqueWithoutArtistInput
+  >;
+  deleteMany?: Maybe<RecordingScalarWhereInput[] | RecordingScalarWhereInput>;
+  updateMany?: Maybe<
+    | RecordingUpdateManyWithWhereNestedInput[]
+    | RecordingUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface RecordingCreateWithoutArtistInput {
+  id?: Maybe<ID_Input>;
+  producer?: Maybe<String>;
+  location?: Maybe<String>;
+  completed?: Maybe<String>;
+  song: SongCreateOneWithoutRecordingsInput;
+  albums?: Maybe<AlbumCreateManyWithoutRecordingsInput>;
+}
+
+export interface RecordingUpdateWithWhereUniqueWithoutArtistInput {
+  where: RecordingWhereUniqueInput;
+  data: RecordingUpdateWithoutArtistDataInput;
+}
+
+export interface SongCreateWithoutRecordingsInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  composer?: Maybe<String>;
+  publisher?: Maybe<String>;
+  publishedDate?: Maybe<String>;
+  altTitle?: Maybe<String>;
+  instrumental?: Maybe<String>;
+  fromFilm?: Maybe<String>;
+  tribute?: Maybe<String>;
+  artists?: Maybe<ArtistCreateManyWithoutSongsInput>;
+  albums?: Maybe<AlbumCreateManyWithoutSongsInput>;
+}
+
+export interface RecordingUpdateWithoutArtistDataInput {
+  producer?: Maybe<String>;
+  location?: Maybe<String>;
+  completed?: Maybe<String>;
+  song?: Maybe<SongUpdateOneRequiredWithoutRecordingsInput>;
+  albums?: Maybe<AlbumUpdateManyWithoutRecordingsInput>;
+}
+
+export interface AlbumCreateWithoutRecordingsInput {
+  id?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  catalogNumber?: Maybe<String>;
+  format?: Maybe<String>;
+  info?: Maybe<String>;
+  releaseDate?: Maybe<String>;
+  recordLabel?: Maybe<String>;
+  songs?: Maybe<SongCreateManyWithoutAlbumsInput>;
+  artists?: Maybe<ArtistCreateManyWithoutAlbumsInput>;
+}
+
+export interface SongUpdateOneRequiredWithoutRecordingsInput {
+  create?: Maybe<SongCreateWithoutRecordingsInput>;
+  update?: Maybe<SongUpdateWithoutRecordingsDataInput>;
+  upsert?: Maybe<SongUpsertWithoutRecordingsInput>;
+  connect?: Maybe<SongWhereUniqueInput>;
+}
+
+export interface RecordingCreateWithoutSongInput {
+  id?: Maybe<ID_Input>;
+  producer?: Maybe<String>;
+  location?: Maybe<String>;
+  completed?: Maybe<String>;
+  artist?: Maybe<ArtistCreateOneWithoutRecordingsInput>;
+  albums?: Maybe<AlbumCreateManyWithoutRecordingsInput>;
+}
+
+export interface SongUpdateWithoutRecordingsDataInput {
+  title?: Maybe<String>;
+  composer?: Maybe<String>;
+  publisher?: Maybe<String>;
+  publishedDate?: Maybe<String>;
+  altTitle?: Maybe<String>;
+  instrumental?: Maybe<String>;
+  fromFilm?: Maybe<String>;
+  tribute?: Maybe<String>;
+  artists?: Maybe<ArtistUpdateManyWithoutSongsInput>;
+  albums?: Maybe<AlbumUpdateManyWithoutSongsInput>;
+}
+
+export interface SongUpdateManyWithoutAlbumsInput {
+  create?: Maybe<SongCreateWithoutAlbumsInput[] | SongCreateWithoutAlbumsInput>;
+  delete?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
+  connect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
+  set?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
+  disconnect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
+  update?: Maybe<
+    | SongUpdateWithWhereUniqueWithoutAlbumsInput[]
+    | SongUpdateWithWhereUniqueWithoutAlbumsInput
+  >;
+  upsert?: Maybe<
+    | SongUpsertWithWhereUniqueWithoutAlbumsInput[]
+    | SongUpsertWithWhereUniqueWithoutAlbumsInput
+  >;
+  deleteMany?: Maybe<SongScalarWhereInput[] | SongScalarWhereInput>;
+  updateMany?: Maybe<
+    SongUpdateManyWithWhereNestedInput[] | SongUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface SongUpsertWithoutRecordingsInput {
+  update: SongUpdateWithoutRecordingsDataInput;
+  create: SongCreateWithoutRecordingsInput;
+}
 
 export interface SongWhereInput {
   id?: Maybe<ID_Input>;
@@ -419,802 +1193,6 @@ export interface SongWhereInput {
   NOT?: Maybe<SongWhereInput[] | SongWhereInput>;
 }
 
-export interface ArtistWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  songs_every?: Maybe<SongWhereInput>;
-  songs_some?: Maybe<SongWhereInput>;
-  songs_none?: Maybe<SongWhereInput>;
-  albums_every?: Maybe<AlbumWhereInput>;
-  albums_some?: Maybe<AlbumWhereInput>;
-  albums_none?: Maybe<AlbumWhereInput>;
-  recordings_every?: Maybe<RecordingWhereInput>;
-  recordings_some?: Maybe<RecordingWhereInput>;
-  recordings_none?: Maybe<RecordingWhereInput>;
-  AND?: Maybe<ArtistWhereInput[] | ArtistWhereInput>;
-  OR?: Maybe<ArtistWhereInput[] | ArtistWhereInput>;
-  NOT?: Maybe<ArtistWhereInput[] | ArtistWhereInput>;
-}
-
-export interface AlbumWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  title?: Maybe<String>;
-  title_not?: Maybe<String>;
-  title_in?: Maybe<String[] | String>;
-  title_not_in?: Maybe<String[] | String>;
-  title_lt?: Maybe<String>;
-  title_lte?: Maybe<String>;
-  title_gt?: Maybe<String>;
-  title_gte?: Maybe<String>;
-  title_contains?: Maybe<String>;
-  title_not_contains?: Maybe<String>;
-  title_starts_with?: Maybe<String>;
-  title_not_starts_with?: Maybe<String>;
-  title_ends_with?: Maybe<String>;
-  title_not_ends_with?: Maybe<String>;
-  catalogNumber?: Maybe<String>;
-  catalogNumber_not?: Maybe<String>;
-  catalogNumber_in?: Maybe<String[] | String>;
-  catalogNumber_not_in?: Maybe<String[] | String>;
-  catalogNumber_lt?: Maybe<String>;
-  catalogNumber_lte?: Maybe<String>;
-  catalogNumber_gt?: Maybe<String>;
-  catalogNumber_gte?: Maybe<String>;
-  catalogNumber_contains?: Maybe<String>;
-  catalogNumber_not_contains?: Maybe<String>;
-  catalogNumber_starts_with?: Maybe<String>;
-  catalogNumber_not_starts_with?: Maybe<String>;
-  catalogNumber_ends_with?: Maybe<String>;
-  catalogNumber_not_ends_with?: Maybe<String>;
-  format?: Maybe<String>;
-  format_not?: Maybe<String>;
-  format_in?: Maybe<String[] | String>;
-  format_not_in?: Maybe<String[] | String>;
-  format_lt?: Maybe<String>;
-  format_lte?: Maybe<String>;
-  format_gt?: Maybe<String>;
-  format_gte?: Maybe<String>;
-  format_contains?: Maybe<String>;
-  format_not_contains?: Maybe<String>;
-  format_starts_with?: Maybe<String>;
-  format_not_starts_with?: Maybe<String>;
-  format_ends_with?: Maybe<String>;
-  format_not_ends_with?: Maybe<String>;
-  info?: Maybe<String>;
-  info_not?: Maybe<String>;
-  info_in?: Maybe<String[] | String>;
-  info_not_in?: Maybe<String[] | String>;
-  info_lt?: Maybe<String>;
-  info_lte?: Maybe<String>;
-  info_gt?: Maybe<String>;
-  info_gte?: Maybe<String>;
-  info_contains?: Maybe<String>;
-  info_not_contains?: Maybe<String>;
-  info_starts_with?: Maybe<String>;
-  info_not_starts_with?: Maybe<String>;
-  info_ends_with?: Maybe<String>;
-  info_not_ends_with?: Maybe<String>;
-  releaseDate?: Maybe<String>;
-  releaseDate_not?: Maybe<String>;
-  releaseDate_in?: Maybe<String[] | String>;
-  releaseDate_not_in?: Maybe<String[] | String>;
-  releaseDate_lt?: Maybe<String>;
-  releaseDate_lte?: Maybe<String>;
-  releaseDate_gt?: Maybe<String>;
-  releaseDate_gte?: Maybe<String>;
-  releaseDate_contains?: Maybe<String>;
-  releaseDate_not_contains?: Maybe<String>;
-  releaseDate_starts_with?: Maybe<String>;
-  releaseDate_not_starts_with?: Maybe<String>;
-  releaseDate_ends_with?: Maybe<String>;
-  releaseDate_not_ends_with?: Maybe<String>;
-  recordLabel?: Maybe<String>;
-  recordLabel_not?: Maybe<String>;
-  recordLabel_in?: Maybe<String[] | String>;
-  recordLabel_not_in?: Maybe<String[] | String>;
-  recordLabel_lt?: Maybe<String>;
-  recordLabel_lte?: Maybe<String>;
-  recordLabel_gt?: Maybe<String>;
-  recordLabel_gte?: Maybe<String>;
-  recordLabel_contains?: Maybe<String>;
-  recordLabel_not_contains?: Maybe<String>;
-  recordLabel_starts_with?: Maybe<String>;
-  recordLabel_not_starts_with?: Maybe<String>;
-  recordLabel_ends_with?: Maybe<String>;
-  recordLabel_not_ends_with?: Maybe<String>;
-  songs_every?: Maybe<SongWhereInput>;
-  songs_some?: Maybe<SongWhereInput>;
-  songs_none?: Maybe<SongWhereInput>;
-  artists_every?: Maybe<ArtistWhereInput>;
-  artists_some?: Maybe<ArtistWhereInput>;
-  artists_none?: Maybe<ArtistWhereInput>;
-  recordings_every?: Maybe<RecordingWhereInput>;
-  recordings_some?: Maybe<RecordingWhereInput>;
-  recordings_none?: Maybe<RecordingWhereInput>;
-  AND?: Maybe<AlbumWhereInput[] | AlbumWhereInput>;
-  OR?: Maybe<AlbumWhereInput[] | AlbumWhereInput>;
-  NOT?: Maybe<AlbumWhereInput[] | AlbumWhereInput>;
-}
-
-export interface RecordingWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  producer?: Maybe<String>;
-  producer_not?: Maybe<String>;
-  producer_in?: Maybe<String[] | String>;
-  producer_not_in?: Maybe<String[] | String>;
-  producer_lt?: Maybe<String>;
-  producer_lte?: Maybe<String>;
-  producer_gt?: Maybe<String>;
-  producer_gte?: Maybe<String>;
-  producer_contains?: Maybe<String>;
-  producer_not_contains?: Maybe<String>;
-  producer_starts_with?: Maybe<String>;
-  producer_not_starts_with?: Maybe<String>;
-  producer_ends_with?: Maybe<String>;
-  producer_not_ends_with?: Maybe<String>;
-  location?: Maybe<String>;
-  location_not?: Maybe<String>;
-  location_in?: Maybe<String[] | String>;
-  location_not_in?: Maybe<String[] | String>;
-  location_lt?: Maybe<String>;
-  location_lte?: Maybe<String>;
-  location_gt?: Maybe<String>;
-  location_gte?: Maybe<String>;
-  location_contains?: Maybe<String>;
-  location_not_contains?: Maybe<String>;
-  location_starts_with?: Maybe<String>;
-  location_not_starts_with?: Maybe<String>;
-  location_ends_with?: Maybe<String>;
-  location_not_ends_with?: Maybe<String>;
-  completed?: Maybe<String>;
-  completed_not?: Maybe<String>;
-  completed_in?: Maybe<String[] | String>;
-  completed_not_in?: Maybe<String[] | String>;
-  completed_lt?: Maybe<String>;
-  completed_lte?: Maybe<String>;
-  completed_gt?: Maybe<String>;
-  completed_gte?: Maybe<String>;
-  completed_contains?: Maybe<String>;
-  completed_not_contains?: Maybe<String>;
-  completed_starts_with?: Maybe<String>;
-  completed_not_starts_with?: Maybe<String>;
-  completed_ends_with?: Maybe<String>;
-  completed_not_ends_with?: Maybe<String>;
-  artist?: Maybe<ArtistWhereInput>;
-  song?: Maybe<SongWhereInput>;
-  albums_every?: Maybe<AlbumWhereInput>;
-  albums_some?: Maybe<AlbumWhereInput>;
-  albums_none?: Maybe<AlbumWhereInput>;
-  AND?: Maybe<RecordingWhereInput[] | RecordingWhereInput>;
-  OR?: Maybe<RecordingWhereInput[] | RecordingWhereInput>;
-  NOT?: Maybe<RecordingWhereInput[] | RecordingWhereInput>;
-}
-
-export type ArtistWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  name?: Maybe<String>;
-}>;
-
-export type RecordingWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export type SongWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  title?: Maybe<String>;
-}>;
-
-export interface AlbumCreateInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  catalogNumber?: Maybe<String>;
-  format?: Maybe<String>;
-  info?: Maybe<String>;
-  releaseDate?: Maybe<String>;
-  recordLabel: String;
-  songs?: Maybe<SongCreateManyWithoutAlbumsInput>;
-  artists?: Maybe<ArtistCreateManyWithoutAlbumsInput>;
-  recordings?: Maybe<RecordingCreateManyWithoutAlbumsInput>;
-}
-
-export interface SongCreateManyWithoutAlbumsInput {
-  create?: Maybe<SongCreateWithoutAlbumsInput[] | SongCreateWithoutAlbumsInput>;
-  connect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
-}
-
-export interface SongCreateWithoutAlbumsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  composer?: Maybe<String>;
-  publisher?: Maybe<String>;
-  publishedDate?: Maybe<String>;
-  altTitle?: Maybe<String>;
-  instrumental?: Maybe<String>;
-  fromFilm?: Maybe<String>;
-  tribute?: Maybe<String>;
-  artists?: Maybe<ArtistCreateManyWithoutSongsInput>;
-  recordings?: Maybe<RecordingCreateManyWithoutSongInput>;
-}
-
-export interface ArtistCreateManyWithoutSongsInput {
-  create?: Maybe<
-    ArtistCreateWithoutSongsInput[] | ArtistCreateWithoutSongsInput
-  >;
-  connect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
-}
-
-export interface ArtistCreateWithoutSongsInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  albums?: Maybe<AlbumCreateManyWithoutArtistsInput>;
-  recordings?: Maybe<RecordingCreateManyWithoutArtistInput>;
-}
-
-export interface AlbumCreateManyWithoutArtistsInput {
-  create?: Maybe<
-    AlbumCreateWithoutArtistsInput[] | AlbumCreateWithoutArtistsInput
-  >;
-  connect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-}
-
-export interface AlbumCreateWithoutArtistsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  catalogNumber?: Maybe<String>;
-  format?: Maybe<String>;
-  info?: Maybe<String>;
-  releaseDate?: Maybe<String>;
-  recordLabel: String;
-  songs?: Maybe<SongCreateManyWithoutAlbumsInput>;
-  recordings?: Maybe<RecordingCreateManyWithoutAlbumsInput>;
-}
-
-export interface RecordingCreateManyWithoutAlbumsInput {
-  create?: Maybe<
-    RecordingCreateWithoutAlbumsInput[] | RecordingCreateWithoutAlbumsInput
-  >;
-  connect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-}
-
-export interface RecordingCreateWithoutAlbumsInput {
-  id?: Maybe<ID_Input>;
-  producer?: Maybe<String>;
-  location?: Maybe<String>;
-  completed?: Maybe<String>;
-  artist?: Maybe<ArtistCreateOneWithoutRecordingsInput>;
-  song: SongCreateOneWithoutRecordingsInput;
-}
-
-export interface ArtistCreateOneWithoutRecordingsInput {
-  create?: Maybe<ArtistCreateWithoutRecordingsInput>;
-  connect?: Maybe<ArtistWhereUniqueInput>;
-}
-
-export interface ArtistCreateWithoutRecordingsInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  songs?: Maybe<SongCreateManyWithoutArtistsInput>;
-  albums?: Maybe<AlbumCreateManyWithoutArtistsInput>;
-}
-
-export interface SongCreateManyWithoutArtistsInput {
-  create?: Maybe<
-    SongCreateWithoutArtistsInput[] | SongCreateWithoutArtistsInput
-  >;
-  connect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
-}
-
-export interface SongCreateWithoutArtistsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  composer?: Maybe<String>;
-  publisher?: Maybe<String>;
-  publishedDate?: Maybe<String>;
-  altTitle?: Maybe<String>;
-  instrumental?: Maybe<String>;
-  fromFilm?: Maybe<String>;
-  tribute?: Maybe<String>;
-  albums?: Maybe<AlbumCreateManyWithoutSongsInput>;
-  recordings?: Maybe<RecordingCreateManyWithoutSongInput>;
-}
-
-export interface AlbumCreateManyWithoutSongsInput {
-  create?: Maybe<AlbumCreateWithoutSongsInput[] | AlbumCreateWithoutSongsInput>;
-  connect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-}
-
-export interface AlbumCreateWithoutSongsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  catalogNumber?: Maybe<String>;
-  format?: Maybe<String>;
-  info?: Maybe<String>;
-  releaseDate?: Maybe<String>;
-  recordLabel: String;
-  artists?: Maybe<ArtistCreateManyWithoutAlbumsInput>;
-  recordings?: Maybe<RecordingCreateManyWithoutAlbumsInput>;
-}
-
-export interface ArtistCreateManyWithoutAlbumsInput {
-  create?: Maybe<
-    ArtistCreateWithoutAlbumsInput[] | ArtistCreateWithoutAlbumsInput
-  >;
-  connect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
-}
-
-export interface ArtistCreateWithoutAlbumsInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  songs?: Maybe<SongCreateManyWithoutArtistsInput>;
-  recordings?: Maybe<RecordingCreateManyWithoutArtistInput>;
-}
-
-export interface RecordingCreateManyWithoutArtistInput {
-  create?: Maybe<
-    RecordingCreateWithoutArtistInput[] | RecordingCreateWithoutArtistInput
-  >;
-  connect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-}
-
-export interface RecordingCreateWithoutArtistInput {
-  id?: Maybe<ID_Input>;
-  producer?: Maybe<String>;
-  location?: Maybe<String>;
-  completed?: Maybe<String>;
-  song: SongCreateOneWithoutRecordingsInput;
-  albums?: Maybe<AlbumCreateManyWithoutRecordingsInput>;
-}
-
-export interface SongCreateOneWithoutRecordingsInput {
-  create?: Maybe<SongCreateWithoutRecordingsInput>;
-  connect?: Maybe<SongWhereUniqueInput>;
-}
-
-export interface SongCreateWithoutRecordingsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  composer?: Maybe<String>;
-  publisher?: Maybe<String>;
-  publishedDate?: Maybe<String>;
-  altTitle?: Maybe<String>;
-  instrumental?: Maybe<String>;
-  fromFilm?: Maybe<String>;
-  tribute?: Maybe<String>;
-  artists?: Maybe<ArtistCreateManyWithoutSongsInput>;
-  albums?: Maybe<AlbumCreateManyWithoutSongsInput>;
-}
-
-export interface AlbumCreateManyWithoutRecordingsInput {
-  create?: Maybe<
-    AlbumCreateWithoutRecordingsInput[] | AlbumCreateWithoutRecordingsInput
-  >;
-  connect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-}
-
-export interface AlbumCreateWithoutRecordingsInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  catalogNumber?: Maybe<String>;
-  format?: Maybe<String>;
-  info?: Maybe<String>;
-  releaseDate?: Maybe<String>;
-  recordLabel: String;
-  songs?: Maybe<SongCreateManyWithoutAlbumsInput>;
-  artists?: Maybe<ArtistCreateManyWithoutAlbumsInput>;
-}
-
-export interface RecordingCreateManyWithoutSongInput {
-  create?: Maybe<
-    RecordingCreateWithoutSongInput[] | RecordingCreateWithoutSongInput
-  >;
-  connect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-}
-
-export interface RecordingCreateWithoutSongInput {
-  id?: Maybe<ID_Input>;
-  producer?: Maybe<String>;
-  location?: Maybe<String>;
-  completed?: Maybe<String>;
-  artist?: Maybe<ArtistCreateOneWithoutRecordingsInput>;
-  albums?: Maybe<AlbumCreateManyWithoutRecordingsInput>;
-}
-
-export interface AlbumUpdateInput {
-  title?: Maybe<String>;
-  catalogNumber?: Maybe<String>;
-  format?: Maybe<String>;
-  info?: Maybe<String>;
-  releaseDate?: Maybe<String>;
-  recordLabel?: Maybe<String>;
-  songs?: Maybe<SongUpdateManyWithoutAlbumsInput>;
-  artists?: Maybe<ArtistUpdateManyWithoutAlbumsInput>;
-  recordings?: Maybe<RecordingUpdateManyWithoutAlbumsInput>;
-}
-
-export interface SongUpdateManyWithoutAlbumsInput {
-  create?: Maybe<SongCreateWithoutAlbumsInput[] | SongCreateWithoutAlbumsInput>;
-  delete?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
-  connect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
-  set?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
-  disconnect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
-  update?: Maybe<
-    | SongUpdateWithWhereUniqueWithoutAlbumsInput[]
-    | SongUpdateWithWhereUniqueWithoutAlbumsInput
-  >;
-  upsert?: Maybe<
-    | SongUpsertWithWhereUniqueWithoutAlbumsInput[]
-    | SongUpsertWithWhereUniqueWithoutAlbumsInput
-  >;
-  deleteMany?: Maybe<SongScalarWhereInput[] | SongScalarWhereInput>;
-  updateMany?: Maybe<
-    SongUpdateManyWithWhereNestedInput[] | SongUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface SongUpdateWithWhereUniqueWithoutAlbumsInput {
-  where: SongWhereUniqueInput;
-  data: SongUpdateWithoutAlbumsDataInput;
-}
-
-export interface SongUpdateWithoutAlbumsDataInput {
-  title?: Maybe<String>;
-  composer?: Maybe<String>;
-  publisher?: Maybe<String>;
-  publishedDate?: Maybe<String>;
-  altTitle?: Maybe<String>;
-  instrumental?: Maybe<String>;
-  fromFilm?: Maybe<String>;
-  tribute?: Maybe<String>;
-  artists?: Maybe<ArtistUpdateManyWithoutSongsInput>;
-  recordings?: Maybe<RecordingUpdateManyWithoutSongInput>;
-}
-
-export interface ArtistUpdateManyWithoutSongsInput {
-  create?: Maybe<
-    ArtistCreateWithoutSongsInput[] | ArtistCreateWithoutSongsInput
-  >;
-  delete?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
-  connect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
-  set?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
-  disconnect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
-  update?: Maybe<
-    | ArtistUpdateWithWhereUniqueWithoutSongsInput[]
-    | ArtistUpdateWithWhereUniqueWithoutSongsInput
-  >;
-  upsert?: Maybe<
-    | ArtistUpsertWithWhereUniqueWithoutSongsInput[]
-    | ArtistUpsertWithWhereUniqueWithoutSongsInput
-  >;
-  deleteMany?: Maybe<ArtistScalarWhereInput[] | ArtistScalarWhereInput>;
-  updateMany?: Maybe<
-    | ArtistUpdateManyWithWhereNestedInput[]
-    | ArtistUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ArtistUpdateWithWhereUniqueWithoutSongsInput {
-  where: ArtistWhereUniqueInput;
-  data: ArtistUpdateWithoutSongsDataInput;
-}
-
-export interface ArtistUpdateWithoutSongsDataInput {
-  name?: Maybe<String>;
-  albums?: Maybe<AlbumUpdateManyWithoutArtistsInput>;
-  recordings?: Maybe<RecordingUpdateManyWithoutArtistInput>;
-}
-
-export interface AlbumUpdateManyWithoutArtistsInput {
-  create?: Maybe<
-    AlbumCreateWithoutArtistsInput[] | AlbumCreateWithoutArtistsInput
-  >;
-  delete?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-  connect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-  set?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-  disconnect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-  update?: Maybe<
-    | AlbumUpdateWithWhereUniqueWithoutArtistsInput[]
-    | AlbumUpdateWithWhereUniqueWithoutArtistsInput
-  >;
-  upsert?: Maybe<
-    | AlbumUpsertWithWhereUniqueWithoutArtistsInput[]
-    | AlbumUpsertWithWhereUniqueWithoutArtistsInput
-  >;
-  deleteMany?: Maybe<AlbumScalarWhereInput[] | AlbumScalarWhereInput>;
-  updateMany?: Maybe<
-    AlbumUpdateManyWithWhereNestedInput[] | AlbumUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface AlbumUpdateWithWhereUniqueWithoutArtistsInput {
-  where: AlbumWhereUniqueInput;
-  data: AlbumUpdateWithoutArtistsDataInput;
-}
-
-export interface AlbumUpdateWithoutArtistsDataInput {
-  title?: Maybe<String>;
-  catalogNumber?: Maybe<String>;
-  format?: Maybe<String>;
-  info?: Maybe<String>;
-  releaseDate?: Maybe<String>;
-  recordLabel?: Maybe<String>;
-  songs?: Maybe<SongUpdateManyWithoutAlbumsInput>;
-  recordings?: Maybe<RecordingUpdateManyWithoutAlbumsInput>;
-}
-
-export interface RecordingUpdateManyWithoutAlbumsInput {
-  create?: Maybe<
-    RecordingCreateWithoutAlbumsInput[] | RecordingCreateWithoutAlbumsInput
-  >;
-  delete?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-  connect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-  set?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-  disconnect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-  update?: Maybe<
-    | RecordingUpdateWithWhereUniqueWithoutAlbumsInput[]
-    | RecordingUpdateWithWhereUniqueWithoutAlbumsInput
-  >;
-  upsert?: Maybe<
-    | RecordingUpsertWithWhereUniqueWithoutAlbumsInput[]
-    | RecordingUpsertWithWhereUniqueWithoutAlbumsInput
-  >;
-  deleteMany?: Maybe<RecordingScalarWhereInput[] | RecordingScalarWhereInput>;
-  updateMany?: Maybe<
-    | RecordingUpdateManyWithWhereNestedInput[]
-    | RecordingUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface RecordingUpdateWithWhereUniqueWithoutAlbumsInput {
-  where: RecordingWhereUniqueInput;
-  data: RecordingUpdateWithoutAlbumsDataInput;
-}
-
-export interface RecordingUpdateWithoutAlbumsDataInput {
-  producer?: Maybe<String>;
-  location?: Maybe<String>;
-  completed?: Maybe<String>;
-  artist?: Maybe<ArtistUpdateOneWithoutRecordingsInput>;
-  song?: Maybe<SongUpdateOneRequiredWithoutRecordingsInput>;
-}
-
-export interface ArtistUpdateOneWithoutRecordingsInput {
-  create?: Maybe<ArtistCreateWithoutRecordingsInput>;
-  update?: Maybe<ArtistUpdateWithoutRecordingsDataInput>;
-  upsert?: Maybe<ArtistUpsertWithoutRecordingsInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<ArtistWhereUniqueInput>;
-}
-
-export interface ArtistUpdateWithoutRecordingsDataInput {
-  name?: Maybe<String>;
-  songs?: Maybe<SongUpdateManyWithoutArtistsInput>;
-  albums?: Maybe<AlbumUpdateManyWithoutArtistsInput>;
-}
-
-export interface SongUpdateManyWithoutArtistsInput {
-  create?: Maybe<
-    SongCreateWithoutArtistsInput[] | SongCreateWithoutArtistsInput
-  >;
-  delete?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
-  connect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
-  set?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
-  disconnect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
-  update?: Maybe<
-    | SongUpdateWithWhereUniqueWithoutArtistsInput[]
-    | SongUpdateWithWhereUniqueWithoutArtistsInput
-  >;
-  upsert?: Maybe<
-    | SongUpsertWithWhereUniqueWithoutArtistsInput[]
-    | SongUpsertWithWhereUniqueWithoutArtistsInput
-  >;
-  deleteMany?: Maybe<SongScalarWhereInput[] | SongScalarWhereInput>;
-  updateMany?: Maybe<
-    SongUpdateManyWithWhereNestedInput[] | SongUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface SongUpdateWithWhereUniqueWithoutArtistsInput {
-  where: SongWhereUniqueInput;
-  data: SongUpdateWithoutArtistsDataInput;
-}
-
-export interface SongUpdateWithoutArtistsDataInput {
-  title?: Maybe<String>;
-  composer?: Maybe<String>;
-  publisher?: Maybe<String>;
-  publishedDate?: Maybe<String>;
-  altTitle?: Maybe<String>;
-  instrumental?: Maybe<String>;
-  fromFilm?: Maybe<String>;
-  tribute?: Maybe<String>;
-  albums?: Maybe<AlbumUpdateManyWithoutSongsInput>;
-  recordings?: Maybe<RecordingUpdateManyWithoutSongInput>;
-}
-
-export interface AlbumUpdateManyWithoutSongsInput {
-  create?: Maybe<AlbumCreateWithoutSongsInput[] | AlbumCreateWithoutSongsInput>;
-  delete?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-  connect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-  set?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-  disconnect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
-  update?: Maybe<
-    | AlbumUpdateWithWhereUniqueWithoutSongsInput[]
-    | AlbumUpdateWithWhereUniqueWithoutSongsInput
-  >;
-  upsert?: Maybe<
-    | AlbumUpsertWithWhereUniqueWithoutSongsInput[]
-    | AlbumUpsertWithWhereUniqueWithoutSongsInput
-  >;
-  deleteMany?: Maybe<AlbumScalarWhereInput[] | AlbumScalarWhereInput>;
-  updateMany?: Maybe<
-    AlbumUpdateManyWithWhereNestedInput[] | AlbumUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface AlbumUpdateWithWhereUniqueWithoutSongsInput {
-  where: AlbumWhereUniqueInput;
-  data: AlbumUpdateWithoutSongsDataInput;
-}
-
-export interface AlbumUpdateWithoutSongsDataInput {
-  title?: Maybe<String>;
-  catalogNumber?: Maybe<String>;
-  format?: Maybe<String>;
-  info?: Maybe<String>;
-  releaseDate?: Maybe<String>;
-  recordLabel?: Maybe<String>;
-  artists?: Maybe<ArtistUpdateManyWithoutAlbumsInput>;
-  recordings?: Maybe<RecordingUpdateManyWithoutAlbumsInput>;
-}
-
-export interface ArtistUpdateManyWithoutAlbumsInput {
-  create?: Maybe<
-    ArtistCreateWithoutAlbumsInput[] | ArtistCreateWithoutAlbumsInput
-  >;
-  delete?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
-  connect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
-  set?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
-  disconnect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
-  update?: Maybe<
-    | ArtistUpdateWithWhereUniqueWithoutAlbumsInput[]
-    | ArtistUpdateWithWhereUniqueWithoutAlbumsInput
-  >;
-  upsert?: Maybe<
-    | ArtistUpsertWithWhereUniqueWithoutAlbumsInput[]
-    | ArtistUpsertWithWhereUniqueWithoutAlbumsInput
-  >;
-  deleteMany?: Maybe<ArtistScalarWhereInput[] | ArtistScalarWhereInput>;
-  updateMany?: Maybe<
-    | ArtistUpdateManyWithWhereNestedInput[]
-    | ArtistUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ArtistUpdateWithWhereUniqueWithoutAlbumsInput {
-  where: ArtistWhereUniqueInput;
-  data: ArtistUpdateWithoutAlbumsDataInput;
-}
-
-export interface ArtistUpdateWithoutAlbumsDataInput {
-  name?: Maybe<String>;
-  songs?: Maybe<SongUpdateManyWithoutArtistsInput>;
-  recordings?: Maybe<RecordingUpdateManyWithoutArtistInput>;
-}
-
-export interface RecordingUpdateManyWithoutArtistInput {
-  create?: Maybe<
-    RecordingCreateWithoutArtistInput[] | RecordingCreateWithoutArtistInput
-  >;
-  delete?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-  connect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-  set?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-  disconnect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
-  update?: Maybe<
-    | RecordingUpdateWithWhereUniqueWithoutArtistInput[]
-    | RecordingUpdateWithWhereUniqueWithoutArtistInput
-  >;
-  upsert?: Maybe<
-    | RecordingUpsertWithWhereUniqueWithoutArtistInput[]
-    | RecordingUpsertWithWhereUniqueWithoutArtistInput
-  >;
-  deleteMany?: Maybe<RecordingScalarWhereInput[] | RecordingScalarWhereInput>;
-  updateMany?: Maybe<
-    | RecordingUpdateManyWithWhereNestedInput[]
-    | RecordingUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface RecordingUpdateWithWhereUniqueWithoutArtistInput {
-  where: RecordingWhereUniqueInput;
-  data: RecordingUpdateWithoutArtistDataInput;
-}
-
-export interface RecordingUpdateWithoutArtistDataInput {
-  producer?: Maybe<String>;
-  location?: Maybe<String>;
-  completed?: Maybe<String>;
-  song?: Maybe<SongUpdateOneRequiredWithoutRecordingsInput>;
-  albums?: Maybe<AlbumUpdateManyWithoutRecordingsInput>;
-}
-
-export interface SongUpdateOneRequiredWithoutRecordingsInput {
-  create?: Maybe<SongCreateWithoutRecordingsInput>;
-  update?: Maybe<SongUpdateWithoutRecordingsDataInput>;
-  upsert?: Maybe<SongUpsertWithoutRecordingsInput>;
-  connect?: Maybe<SongWhereUniqueInput>;
-}
-
-export interface SongUpdateWithoutRecordingsDataInput {
-  title?: Maybe<String>;
-  composer?: Maybe<String>;
-  publisher?: Maybe<String>;
-  publishedDate?: Maybe<String>;
-  altTitle?: Maybe<String>;
-  instrumental?: Maybe<String>;
-  fromFilm?: Maybe<String>;
-  tribute?: Maybe<String>;
-  artists?: Maybe<ArtistUpdateManyWithoutSongsInput>;
-  albums?: Maybe<AlbumUpdateManyWithoutSongsInput>;
-}
-
-export interface SongUpsertWithoutRecordingsInput {
-  update: SongUpdateWithoutRecordingsDataInput;
-  create: SongCreateWithoutRecordingsInput;
-}
-
 export interface AlbumUpdateManyWithoutRecordingsInput {
   create?: Maybe<
     AlbumCreateWithoutRecordingsInput[] | AlbumCreateWithoutRecordingsInput
@@ -1237,10 +1215,26 @@ export interface AlbumUpdateManyWithoutRecordingsInput {
   >;
 }
 
+export interface SongUpdateManyMutationInput {
+  title?: Maybe<String>;
+  composer?: Maybe<String>;
+  publisher?: Maybe<String>;
+  publishedDate?: Maybe<String>;
+  altTitle?: Maybe<String>;
+  instrumental?: Maybe<String>;
+  fromFilm?: Maybe<String>;
+  tribute?: Maybe<String>;
+}
+
 export interface AlbumUpdateWithWhereUniqueWithoutRecordingsInput {
   where: AlbumWhereUniqueInput;
   data: AlbumUpdateWithoutRecordingsDataInput;
 }
+
+export type ArtistWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  name?: Maybe<String>;
+}>;
 
 export interface AlbumUpdateWithoutRecordingsDataInput {
   title?: Maybe<String>;
@@ -1253,11 +1247,20 @@ export interface AlbumUpdateWithoutRecordingsDataInput {
   artists?: Maybe<ArtistUpdateManyWithoutAlbumsInput>;
 }
 
+export type RecordingWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
 export interface AlbumUpsertWithWhereUniqueWithoutRecordingsInput {
   where: AlbumWhereUniqueInput;
   update: AlbumUpdateWithoutRecordingsDataInput;
   create: AlbumCreateWithoutRecordingsInput;
 }
+
+export type SongWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  title?: Maybe<String>;
+}>;
 
 export interface AlbumScalarWhereInput {
   id?: Maybe<ID_Input>;
@@ -1363,9 +1366,23 @@ export interface AlbumScalarWhereInput {
   NOT?: Maybe<AlbumScalarWhereInput[] | AlbumScalarWhereInput>;
 }
 
+export interface ArtistCreateManyWithoutSongsInput {
+  create?: Maybe<
+    ArtistCreateWithoutSongsInput[] | ArtistCreateWithoutSongsInput
+  >;
+  connect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
+}
+
 export interface AlbumUpdateManyWithWhereNestedInput {
   where: AlbumScalarWhereInput;
   data: AlbumUpdateManyDataInput;
+}
+
+export interface RecordingCreateManyWithoutAlbumsInput {
+  create?: Maybe<
+    RecordingCreateWithoutAlbumsInput[] | RecordingCreateWithoutAlbumsInput
+  >;
+  connect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
 }
 
 export interface AlbumUpdateManyDataInput {
@@ -1377,10 +1394,24 @@ export interface AlbumUpdateManyDataInput {
   recordLabel?: Maybe<String>;
 }
 
+export interface SongCreateManyWithoutArtistsInput {
+  create?: Maybe<
+    SongCreateWithoutArtistsInput[] | SongCreateWithoutArtistsInput
+  >;
+  connect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
+}
+
 export interface RecordingUpsertWithWhereUniqueWithoutArtistInput {
   where: RecordingWhereUniqueInput;
   update: RecordingUpdateWithoutArtistDataInput;
   create: RecordingCreateWithoutArtistInput;
+}
+
+export interface ArtistCreateManyWithoutAlbumsInput {
+  create?: Maybe<
+    ArtistCreateWithoutAlbumsInput[] | ArtistCreateWithoutAlbumsInput
+  >;
+  connect?: Maybe<ArtistWhereUniqueInput[] | ArtistWhereUniqueInput>;
 }
 
 export interface RecordingScalarWhereInput {
@@ -1445,9 +1476,21 @@ export interface RecordingScalarWhereInput {
   NOT?: Maybe<RecordingScalarWhereInput[] | RecordingScalarWhereInput>;
 }
 
+export interface SongCreateOneWithoutRecordingsInput {
+  create?: Maybe<SongCreateWithoutRecordingsInput>;
+  connect?: Maybe<SongWhereUniqueInput>;
+}
+
 export interface RecordingUpdateManyWithWhereNestedInput {
   where: RecordingScalarWhereInput;
   data: RecordingUpdateManyDataInput;
+}
+
+export interface RecordingCreateManyWithoutSongInput {
+  create?: Maybe<
+    RecordingCreateWithoutSongInput[] | RecordingCreateWithoutSongInput
+  >;
+  connect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
 }
 
 export interface RecordingUpdateManyDataInput {
@@ -1456,10 +1499,68 @@ export interface RecordingUpdateManyDataInput {
   completed?: Maybe<String>;
 }
 
+export interface ArtistWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  songs_every?: Maybe<SongWhereInput>;
+  songs_some?: Maybe<SongWhereInput>;
+  songs_none?: Maybe<SongWhereInput>;
+  albums_every?: Maybe<AlbumWhereInput>;
+  albums_some?: Maybe<AlbumWhereInput>;
+  albums_none?: Maybe<AlbumWhereInput>;
+  recordings_every?: Maybe<RecordingWhereInput>;
+  recordings_some?: Maybe<RecordingWhereInput>;
+  recordings_none?: Maybe<RecordingWhereInput>;
+  AND?: Maybe<ArtistWhereInput[] | ArtistWhereInput>;
+  OR?: Maybe<ArtistWhereInput[] | ArtistWhereInput>;
+  NOT?: Maybe<ArtistWhereInput[] | ArtistWhereInput>;
+}
+
 export interface ArtistUpsertWithWhereUniqueWithoutAlbumsInput {
   where: ArtistWhereUniqueInput;
   update: ArtistUpdateWithoutAlbumsDataInput;
   create: ArtistCreateWithoutAlbumsInput;
+}
+
+export interface SongCreateInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  composer?: Maybe<String>;
+  publisher?: Maybe<String>;
+  publishedDate?: Maybe<String>;
+  altTitle?: Maybe<String>;
+  instrumental?: Maybe<String>;
+  fromFilm?: Maybe<String>;
+  tribute?: Maybe<String>;
+  artists?: Maybe<ArtistCreateManyWithoutSongsInput>;
+  albums?: Maybe<AlbumCreateManyWithoutSongsInput>;
+  recordings?: Maybe<RecordingCreateManyWithoutSongInput>;
 }
 
 export interface ArtistScalarWhereInput {
@@ -1496,19 +1597,44 @@ export interface ArtistScalarWhereInput {
   NOT?: Maybe<ArtistScalarWhereInput[] | ArtistScalarWhereInput>;
 }
 
+export interface ArtistCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+  songs?: Maybe<SongCreateManyWithoutArtistsInput>;
+  albums?: Maybe<AlbumCreateManyWithoutArtistsInput>;
+  recordings?: Maybe<RecordingCreateManyWithoutArtistInput>;
+}
+
 export interface ArtistUpdateManyWithWhereNestedInput {
   where: ArtistScalarWhereInput;
   data: ArtistUpdateManyDataInput;
+}
+
+export interface SongCreateManyWithoutAlbumsInput {
+  create?: Maybe<SongCreateWithoutAlbumsInput[] | SongCreateWithoutAlbumsInput>;
+  connect?: Maybe<SongWhereUniqueInput[] | SongWhereUniqueInput>;
 }
 
 export interface ArtistUpdateManyDataInput {
   name?: Maybe<String>;
 }
 
+export interface ArtistCreateOneWithoutRecordingsInput {
+  create?: Maybe<ArtistCreateWithoutRecordingsInput>;
+  connect?: Maybe<ArtistWhereUniqueInput>;
+}
+
 export interface AlbumUpsertWithWhereUniqueWithoutSongsInput {
   where: AlbumWhereUniqueInput;
   update: AlbumUpdateWithoutSongsDataInput;
   create: AlbumCreateWithoutSongsInput;
+}
+
+export interface RecordingCreateManyWithoutArtistInput {
+  create?: Maybe<
+    RecordingCreateWithoutArtistInput[] | RecordingCreateWithoutArtistInput
+  >;
+  connect?: Maybe<RecordingWhereUniqueInput[] | RecordingWhereUniqueInput>;
 }
 
 export interface RecordingUpdateManyWithoutSongInput {
@@ -1534,9 +1660,31 @@ export interface RecordingUpdateManyWithoutSongInput {
   >;
 }
 
+export interface AlbumUpdateInput {
+  title?: Maybe<String>;
+  catalogNumber?: Maybe<String>;
+  format?: Maybe<String>;
+  info?: Maybe<String>;
+  releaseDate?: Maybe<String>;
+  recordLabel?: Maybe<String>;
+  songs?: Maybe<SongUpdateManyWithoutAlbumsInput>;
+  artists?: Maybe<ArtistUpdateManyWithoutAlbumsInput>;
+  recordings?: Maybe<RecordingUpdateManyWithoutAlbumsInput>;
+}
+
 export interface RecordingUpdateWithWhereUniqueWithoutSongInput {
   where: RecordingWhereUniqueInput;
   data: RecordingUpdateWithoutSongDataInput;
+}
+
+export interface RecordingCreateInput {
+  id?: Maybe<ID_Input>;
+  producer?: Maybe<String>;
+  location?: Maybe<String>;
+  completed?: Maybe<String>;
+  artist?: Maybe<ArtistCreateOneWithoutRecordingsInput>;
+  song: SongCreateOneWithoutRecordingsInput;
+  albums?: Maybe<AlbumCreateManyWithoutRecordingsInput>;
 }
 
 export interface RecordingUpdateWithoutSongDataInput {
@@ -1547,16 +1695,16 @@ export interface RecordingUpdateWithoutSongDataInput {
   albums?: Maybe<AlbumUpdateManyWithoutRecordingsInput>;
 }
 
-export interface RecordingUpsertWithWhereUniqueWithoutSongInput {
-  where: RecordingWhereUniqueInput;
-  update: RecordingUpdateWithoutSongDataInput;
-  create: RecordingCreateWithoutSongInput;
+export interface AlbumCreateManyWithoutArtistsInput {
+  create?: Maybe<
+    AlbumCreateWithoutArtistsInput[] | AlbumCreateWithoutArtistsInput
+  >;
+  connect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
 }
 
-export interface SongUpsertWithWhereUniqueWithoutArtistsInput {
-  where: SongWhereUniqueInput;
-  update: SongUpdateWithoutArtistsDataInput;
-  create: SongCreateWithoutArtistsInput;
+export interface SongUpdateManyWithWhereNestedInput {
+  where: SongScalarWhereInput;
+  data: SongUpdateManyDataInput;
 }
 
 export interface SongScalarWhereInput {
@@ -1691,153 +1839,27 @@ export interface SongScalarWhereInput {
   NOT?: Maybe<SongScalarWhereInput[] | SongScalarWhereInput>;
 }
 
-export interface SongUpdateManyWithWhereNestedInput {
-  where: SongScalarWhereInput;
-  data: SongUpdateManyDataInput;
+export interface SongUpsertWithWhereUniqueWithoutArtistsInput {
+  where: SongWhereUniqueInput;
+  update: SongUpdateWithoutArtistsDataInput;
+  create: SongCreateWithoutArtistsInput;
 }
 
-export interface SongUpdateManyDataInput {
-  title?: Maybe<String>;
-  composer?: Maybe<String>;
-  publisher?: Maybe<String>;
-  publishedDate?: Maybe<String>;
-  altTitle?: Maybe<String>;
-  instrumental?: Maybe<String>;
-  fromFilm?: Maybe<String>;
-  tribute?: Maybe<String>;
-}
-
-export interface ArtistUpsertWithoutRecordingsInput {
-  update: ArtistUpdateWithoutRecordingsDataInput;
-  create: ArtistCreateWithoutRecordingsInput;
-}
-
-export interface RecordingUpsertWithWhereUniqueWithoutAlbumsInput {
+export interface RecordingUpsertWithWhereUniqueWithoutSongInput {
   where: RecordingWhereUniqueInput;
-  update: RecordingUpdateWithoutAlbumsDataInput;
-  create: RecordingCreateWithoutAlbumsInput;
+  update: RecordingUpdateWithoutSongDataInput;
+  create: RecordingCreateWithoutSongInput;
 }
 
-export interface AlbumUpsertWithWhereUniqueWithoutArtistsInput {
-  where: AlbumWhereUniqueInput;
-  update: AlbumUpdateWithoutArtistsDataInput;
-  create: AlbumCreateWithoutArtistsInput;
+export interface AlbumCreateManyWithoutSongsInput {
+  create?: Maybe<AlbumCreateWithoutSongsInput[] | AlbumCreateWithoutSongsInput>;
+  connect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
 }
 
 export interface ArtistUpsertWithWhereUniqueWithoutSongsInput {
   where: ArtistWhereUniqueInput;
   update: ArtistUpdateWithoutSongsDataInput;
   create: ArtistCreateWithoutSongsInput;
-}
-
-export interface SongUpsertWithWhereUniqueWithoutAlbumsInput {
-  where: SongWhereUniqueInput;
-  update: SongUpdateWithoutAlbumsDataInput;
-  create: SongCreateWithoutAlbumsInput;
-}
-
-export interface AlbumUpdateManyMutationInput {
-  title?: Maybe<String>;
-  catalogNumber?: Maybe<String>;
-  format?: Maybe<String>;
-  info?: Maybe<String>;
-  releaseDate?: Maybe<String>;
-  recordLabel?: Maybe<String>;
-}
-
-export interface ArtistCreateInput {
-  id?: Maybe<ID_Input>;
-  name: String;
-  songs?: Maybe<SongCreateManyWithoutArtistsInput>;
-  albums?: Maybe<AlbumCreateManyWithoutArtistsInput>;
-  recordings?: Maybe<RecordingCreateManyWithoutArtistInput>;
-}
-
-export interface ArtistUpdateInput {
-  name?: Maybe<String>;
-  songs?: Maybe<SongUpdateManyWithoutArtistsInput>;
-  albums?: Maybe<AlbumUpdateManyWithoutArtistsInput>;
-  recordings?: Maybe<RecordingUpdateManyWithoutArtistInput>;
-}
-
-export interface ArtistUpdateManyMutationInput {
-  name?: Maybe<String>;
-}
-
-export interface RecordingCreateInput {
-  id?: Maybe<ID_Input>;
-  producer?: Maybe<String>;
-  location?: Maybe<String>;
-  completed?: Maybe<String>;
-  artist?: Maybe<ArtistCreateOneWithoutRecordingsInput>;
-  song: SongCreateOneWithoutRecordingsInput;
-  albums?: Maybe<AlbumCreateManyWithoutRecordingsInput>;
-}
-
-export interface RecordingUpdateInput {
-  producer?: Maybe<String>;
-  location?: Maybe<String>;
-  completed?: Maybe<String>;
-  artist?: Maybe<ArtistUpdateOneWithoutRecordingsInput>;
-  song?: Maybe<SongUpdateOneRequiredWithoutRecordingsInput>;
-  albums?: Maybe<AlbumUpdateManyWithoutRecordingsInput>;
-}
-
-export interface RecordingUpdateManyMutationInput {
-  producer?: Maybe<String>;
-  location?: Maybe<String>;
-  completed?: Maybe<String>;
-}
-
-export interface SongCreateInput {
-  id?: Maybe<ID_Input>;
-  title: String;
-  composer?: Maybe<String>;
-  publisher?: Maybe<String>;
-  publishedDate?: Maybe<String>;
-  altTitle?: Maybe<String>;
-  instrumental?: Maybe<String>;
-  fromFilm?: Maybe<String>;
-  tribute?: Maybe<String>;
-  artists?: Maybe<ArtistCreateManyWithoutSongsInput>;
-  albums?: Maybe<AlbumCreateManyWithoutSongsInput>;
-  recordings?: Maybe<RecordingCreateManyWithoutSongInput>;
-}
-
-export interface SongUpdateInput {
-  title?: Maybe<String>;
-  composer?: Maybe<String>;
-  publisher?: Maybe<String>;
-  publishedDate?: Maybe<String>;
-  altTitle?: Maybe<String>;
-  instrumental?: Maybe<String>;
-  fromFilm?: Maybe<String>;
-  tribute?: Maybe<String>;
-  artists?: Maybe<ArtistUpdateManyWithoutSongsInput>;
-  albums?: Maybe<AlbumUpdateManyWithoutSongsInput>;
-  recordings?: Maybe<RecordingUpdateManyWithoutSongInput>;
-}
-
-export interface SongUpdateManyMutationInput {
-  title?: Maybe<String>;
-  composer?: Maybe<String>;
-  publisher?: Maybe<String>;
-  publishedDate?: Maybe<String>;
-  altTitle?: Maybe<String>;
-  instrumental?: Maybe<String>;
-  fromFilm?: Maybe<String>;
-  tribute?: Maybe<String>;
-}
-
-export interface AlbumSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<AlbumWhereInput>;
-  AND?: Maybe<AlbumSubscriptionWhereInput[] | AlbumSubscriptionWhereInput>;
-  OR?: Maybe<AlbumSubscriptionWhereInput[] | AlbumSubscriptionWhereInput>;
-  NOT?: Maybe<AlbumSubscriptionWhereInput[] | AlbumSubscriptionWhereInput>;
 }
 
 export interface ArtistSubscriptionWhereInput {
@@ -1851,161 +1873,113 @@ export interface ArtistSubscriptionWhereInput {
   NOT?: Maybe<ArtistSubscriptionWhereInput[] | ArtistSubscriptionWhereInput>;
 }
 
-export interface RecordingSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<RecordingWhereInput>;
-  AND?: Maybe<
-    RecordingSubscriptionWhereInput[] | RecordingSubscriptionWhereInput
+export interface AlbumCreateManyWithoutRecordingsInput {
+  create?: Maybe<
+    AlbumCreateWithoutRecordingsInput[] | AlbumCreateWithoutRecordingsInput
   >;
-  OR?: Maybe<
-    RecordingSubscriptionWhereInput[] | RecordingSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    RecordingSubscriptionWhereInput[] | RecordingSubscriptionWhereInput
-  >;
-}
-
-export interface SongSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<SongWhereInput>;
-  AND?: Maybe<SongSubscriptionWhereInput[] | SongSubscriptionWhereInput>;
-  OR?: Maybe<SongSubscriptionWhereInput[] | SongSubscriptionWhereInput>;
-  NOT?: Maybe<SongSubscriptionWhereInput[] | SongSubscriptionWhereInput>;
+  connect?: Maybe<AlbumWhereUniqueInput[] | AlbumWhereUniqueInput>;
 }
 
 export interface NodeNode {
   id: ID_Output;
 }
 
-export interface Album {
+export interface SongPreviousValues {
   id: ID_Output;
   title: String;
-  catalogNumber?: String;
-  format?: String;
-  info?: String;
-  releaseDate?: String;
-  recordLabel: String;
+  composer?: String;
+  publisher?: String;
+  publishedDate?: String;
+  altTitle?: String;
+  instrumental?: String;
+  fromFilm?: String;
+  tribute?: String;
 }
 
-export interface AlbumPromise extends Promise<Album>, Fragmentable {
+export interface SongPreviousValuesPromise
+  extends Promise<SongPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
   title: () => Promise<String>;
-  catalogNumber: () => Promise<String>;
-  format: () => Promise<String>;
-  info: () => Promise<String>;
-  releaseDate: () => Promise<String>;
-  recordLabel: () => Promise<String>;
-  songs: <T = FragmentableArray<Song>>(args?: {
-    where?: SongWhereInput;
-    orderBy?: SongOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  artists: <T = FragmentableArray<Artist>>(args?: {
-    where?: ArtistWhereInput;
-    orderBy?: ArtistOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  recordings: <T = FragmentableArray<Recording>>(args?: {
-    where?: RecordingWhereInput;
-    orderBy?: RecordingOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  composer: () => Promise<String>;
+  publisher: () => Promise<String>;
+  publishedDate: () => Promise<String>;
+  altTitle: () => Promise<String>;
+  instrumental: () => Promise<String>;
+  fromFilm: () => Promise<String>;
+  tribute: () => Promise<String>;
 }
 
-export interface AlbumSubscription
-  extends Promise<AsyncIterator<Album>>,
+export interface SongPreviousValuesSubscription
+  extends Promise<AsyncIterator<SongPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   title: () => Promise<AsyncIterator<String>>;
-  catalogNumber: () => Promise<AsyncIterator<String>>;
-  format: () => Promise<AsyncIterator<String>>;
-  info: () => Promise<AsyncIterator<String>>;
-  releaseDate: () => Promise<AsyncIterator<String>>;
-  recordLabel: () => Promise<AsyncIterator<String>>;
-  songs: <T = Promise<AsyncIterator<SongSubscription>>>(args?: {
-    where?: SongWhereInput;
-    orderBy?: SongOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  artists: <T = Promise<AsyncIterator<ArtistSubscription>>>(args?: {
-    where?: ArtistWhereInput;
-    orderBy?: ArtistOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  recordings: <T = Promise<AsyncIterator<RecordingSubscription>>>(args?: {
-    where?: RecordingWhereInput;
-    orderBy?: RecordingOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  composer: () => Promise<AsyncIterator<String>>;
+  publisher: () => Promise<AsyncIterator<String>>;
+  publishedDate: () => Promise<AsyncIterator<String>>;
+  altTitle: () => Promise<AsyncIterator<String>>;
+  instrumental: () => Promise<AsyncIterator<String>>;
+  fromFilm: () => Promise<AsyncIterator<String>>;
+  tribute: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AlbumNullablePromise
-  extends Promise<Album | null>,
+export interface AggregateAlbum {
+  count: Int;
+}
+
+export interface AggregateAlbumPromise
+  extends Promise<AggregateAlbum>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  catalogNumber: () => Promise<String>;
-  format: () => Promise<String>;
-  info: () => Promise<String>;
-  releaseDate: () => Promise<String>;
-  recordLabel: () => Promise<String>;
-  songs: <T = FragmentableArray<Song>>(args?: {
-    where?: SongWhereInput;
-    orderBy?: SongOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  artists: <T = FragmentableArray<Artist>>(args?: {
-    where?: ArtistWhereInput;
-    orderBy?: ArtistOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  recordings: <T = FragmentableArray<Recording>>(args?: {
-    where?: RecordingWhereInput;
-    orderBy?: RecordingOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  count: () => Promise<Int>;
+}
+
+export interface AggregateAlbumSubscription
+  extends Promise<AsyncIterator<AggregateAlbum>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface RecordingSubscriptionPayload {
+  mutation: MutationType;
+  node: Recording;
+  updatedFields: String[];
+  previousValues: RecordingPreviousValues;
+}
+
+export interface RecordingSubscriptionPayloadPromise
+  extends Promise<RecordingSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = RecordingPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RecordingPreviousValuesPromise>() => T;
+}
+
+export interface RecordingSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RecordingSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = RecordingSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = RecordingPreviousValuesSubscription>() => T;
+}
+
+export interface AlbumEdge {
+  node: Album;
+  cursor: String;
+}
+
+export interface AlbumEdgePromise extends Promise<AlbumEdge>, Fragmentable {
+  node: <T = AlbumPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AlbumEdgeSubscription
+  extends Promise<AsyncIterator<AlbumEdge>>,
+    Fragmentable {
+  node: <T = AlbumSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface Song {
@@ -2246,6 +2220,431 @@ export interface ArtistNullablePromise
   }) => T;
 }
 
+export interface SongEdge {
+  node: Song;
+  cursor: String;
+}
+
+export interface SongEdgePromise extends Promise<SongEdge>, Fragmentable {
+  node: <T = SongPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface SongEdgeSubscription
+  extends Promise<AsyncIterator<SongEdge>>,
+    Fragmentable {
+  node: <T = SongSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface PageInfo {
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String;
+  endCursor?: String;
+}
+
+export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
+  hasNextPage: () => Promise<Boolean>;
+  hasPreviousPage: () => Promise<Boolean>;
+  startCursor: () => Promise<String>;
+  endCursor: () => Promise<String>;
+}
+
+export interface PageInfoSubscription
+  extends Promise<AsyncIterator<PageInfo>>,
+    Fragmentable {
+  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
+  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
+  startCursor: () => Promise<AsyncIterator<String>>;
+  endCursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateRecording {
+  count: Int;
+}
+
+export interface AggregateRecordingPromise
+  extends Promise<AggregateRecording>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateRecordingSubscription
+  extends Promise<AsyncIterator<AggregateRecording>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AlbumConnection {
+  pageInfo: PageInfo;
+  edges: AlbumEdge[];
+}
+
+export interface AlbumConnectionPromise
+  extends Promise<AlbumConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<AlbumEdge>>() => T;
+  aggregate: <T = AggregateAlbumPromise>() => T;
+}
+
+export interface AlbumConnectionSubscription
+  extends Promise<AsyncIterator<AlbumConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AlbumEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAlbumSubscription>() => T;
+}
+
+export interface SongSubscriptionPayload {
+  mutation: MutationType;
+  node: Song;
+  updatedFields: String[];
+  previousValues: SongPreviousValues;
+}
+
+export interface SongSubscriptionPayloadPromise
+  extends Promise<SongSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = SongPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SongPreviousValuesPromise>() => T;
+}
+
+export interface SongSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SongSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = SongSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SongPreviousValuesSubscription>() => T;
+}
+
+export interface RecordingPreviousValues {
+  id: ID_Output;
+  producer?: String;
+  location?: String;
+  completed?: String;
+}
+
+export interface RecordingPreviousValuesPromise
+  extends Promise<RecordingPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  producer: () => Promise<String>;
+  location: () => Promise<String>;
+  completed: () => Promise<String>;
+}
+
+export interface RecordingPreviousValuesSubscription
+  extends Promise<AsyncIterator<RecordingPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  producer: () => Promise<AsyncIterator<String>>;
+  location: () => Promise<AsyncIterator<String>>;
+  completed: () => Promise<AsyncIterator<String>>;
+}
+
+export interface RecordingConnection {
+  pageInfo: PageInfo;
+  edges: RecordingEdge[];
+}
+
+export interface RecordingConnectionPromise
+  extends Promise<RecordingConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<RecordingEdge>>() => T;
+  aggregate: <T = AggregateRecordingPromise>() => T;
+}
+
+export interface RecordingConnectionSubscription
+  extends Promise<AsyncIterator<RecordingConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<RecordingEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateRecordingSubscription>() => T;
+}
+
+export interface AlbumSubscriptionPayload {
+  mutation: MutationType;
+  node: Album;
+  updatedFields: String[];
+  previousValues: AlbumPreviousValues;
+}
+
+export interface AlbumSubscriptionPayloadPromise
+  extends Promise<AlbumSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AlbumPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AlbumPreviousValuesPromise>() => T;
+}
+
+export interface AlbumSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AlbumSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AlbumSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AlbumPreviousValuesSubscription>() => T;
+}
+
+export interface ArtistEdge {
+  node: Artist;
+  cursor: String;
+}
+
+export interface ArtistEdgePromise extends Promise<ArtistEdge>, Fragmentable {
+  node: <T = ArtistPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface ArtistEdgeSubscription
+  extends Promise<AsyncIterator<ArtistEdge>>,
+    Fragmentable {
+  node: <T = ArtistSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AlbumPreviousValues {
+  id: ID_Output;
+  title?: String;
+  catalogNumber?: String;
+  format?: String;
+  info?: String;
+  releaseDate?: String;
+  recordLabel?: String;
+}
+
+export interface AlbumPreviousValuesPromise
+  extends Promise<AlbumPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  catalogNumber: () => Promise<String>;
+  format: () => Promise<String>;
+  info: () => Promise<String>;
+  releaseDate: () => Promise<String>;
+  recordLabel: () => Promise<String>;
+}
+
+export interface AlbumPreviousValuesSubscription
+  extends Promise<AsyncIterator<AlbumPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  catalogNumber: () => Promise<AsyncIterator<String>>;
+  format: () => Promise<AsyncIterator<String>>;
+  info: () => Promise<AsyncIterator<String>>;
+  releaseDate: () => Promise<AsyncIterator<String>>;
+  recordLabel: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateSong {
+  count: Int;
+}
+
+export interface AggregateSongPromise
+  extends Promise<AggregateSong>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateSongSubscription
+  extends Promise<AsyncIterator<AggregateSong>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface BatchPayload {
+  count: Long;
+}
+
+export interface BatchPayloadPromise
+  extends Promise<BatchPayload>,
+    Fragmentable {
+  count: () => Promise<Long>;
+}
+
+export interface BatchPayloadSubscription
+  extends Promise<AsyncIterator<BatchPayload>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Long>>;
+}
+
+export interface Album {
+  id: ID_Output;
+  title?: String;
+  catalogNumber?: String;
+  format?: String;
+  info?: String;
+  releaseDate?: String;
+  recordLabel?: String;
+}
+
+export interface AlbumPromise extends Promise<Album>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  catalogNumber: () => Promise<String>;
+  format: () => Promise<String>;
+  info: () => Promise<String>;
+  releaseDate: () => Promise<String>;
+  recordLabel: () => Promise<String>;
+  songs: <T = FragmentableArray<Song>>(args?: {
+    where?: SongWhereInput;
+    orderBy?: SongOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  artists: <T = FragmentableArray<Artist>>(args?: {
+    where?: ArtistWhereInput;
+    orderBy?: ArtistOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  recordings: <T = FragmentableArray<Recording>>(args?: {
+    where?: RecordingWhereInput;
+    orderBy?: RecordingOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface AlbumSubscription
+  extends Promise<AsyncIterator<Album>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  catalogNumber: () => Promise<AsyncIterator<String>>;
+  format: () => Promise<AsyncIterator<String>>;
+  info: () => Promise<AsyncIterator<String>>;
+  releaseDate: () => Promise<AsyncIterator<String>>;
+  recordLabel: () => Promise<AsyncIterator<String>>;
+  songs: <T = Promise<AsyncIterator<SongSubscription>>>(args?: {
+    where?: SongWhereInput;
+    orderBy?: SongOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  artists: <T = Promise<AsyncIterator<ArtistSubscription>>>(args?: {
+    where?: ArtistWhereInput;
+    orderBy?: ArtistOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  recordings: <T = Promise<AsyncIterator<RecordingSubscription>>>(args?: {
+    where?: RecordingWhereInput;
+    orderBy?: RecordingOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface AlbumNullablePromise
+  extends Promise<Album | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  catalogNumber: () => Promise<String>;
+  format: () => Promise<String>;
+  info: () => Promise<String>;
+  releaseDate: () => Promise<String>;
+  recordLabel: () => Promise<String>;
+  songs: <T = FragmentableArray<Song>>(args?: {
+    where?: SongWhereInput;
+    orderBy?: SongOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  artists: <T = FragmentableArray<Artist>>(args?: {
+    where?: ArtistWhereInput;
+    orderBy?: ArtistOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  recordings: <T = FragmentableArray<Recording>>(args?: {
+    where?: RecordingWhereInput;
+    orderBy?: RecordingOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface ArtistPreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface ArtistPreviousValuesPromise
+  extends Promise<ArtistPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface ArtistPreviousValuesSubscription
+  extends Promise<AsyncIterator<ArtistPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ArtistSubscriptionPayload {
+  mutation: MutationType;
+  node: Artist;
+  updatedFields: String[];
+  previousValues: ArtistPreviousValues;
+}
+
+export interface ArtistSubscriptionPayloadPromise
+  extends Promise<ArtistSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ArtistPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ArtistPreviousValuesPromise>() => T;
+}
+
+export interface ArtistSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ArtistSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ArtistSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ArtistPreviousValuesSubscription>() => T;
+}
+
 export interface Recording {
   id: ID_Output;
   producer?: String;
@@ -2311,158 +2710,6 @@ export interface RecordingNullablePromise
   }) => T;
 }
 
-export interface AlbumConnection {
-  pageInfo: PageInfo;
-  edges: AlbumEdge[];
-}
-
-export interface AlbumConnectionPromise
-  extends Promise<AlbumConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<AlbumEdge>>() => T;
-  aggregate: <T = AggregateAlbumPromise>() => T;
-}
-
-export interface AlbumConnectionSubscription
-  extends Promise<AsyncIterator<AlbumConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<AlbumEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateAlbumSubscription>() => T;
-}
-
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
-}
-
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
-    Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AlbumEdge {
-  node: Album;
-  cursor: String;
-}
-
-export interface AlbumEdgePromise extends Promise<AlbumEdge>, Fragmentable {
-  node: <T = AlbumPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface AlbumEdgeSubscription
-  extends Promise<AsyncIterator<AlbumEdge>>,
-    Fragmentable {
-  node: <T = AlbumSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateAlbum {
-  count: Int;
-}
-
-export interface AggregateAlbumPromise
-  extends Promise<AggregateAlbum>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateAlbumSubscription
-  extends Promise<AsyncIterator<AggregateAlbum>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ArtistConnection {
-  pageInfo: PageInfo;
-  edges: ArtistEdge[];
-}
-
-export interface ArtistConnectionPromise
-  extends Promise<ArtistConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ArtistEdge>>() => T;
-  aggregate: <T = AggregateArtistPromise>() => T;
-}
-
-export interface ArtistConnectionSubscription
-  extends Promise<AsyncIterator<ArtistConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ArtistEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateArtistSubscription>() => T;
-}
-
-export interface ArtistEdge {
-  node: Artist;
-  cursor: String;
-}
-
-export interface ArtistEdgePromise extends Promise<ArtistEdge>, Fragmentable {
-  node: <T = ArtistPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ArtistEdgeSubscription
-  extends Promise<AsyncIterator<ArtistEdge>>,
-    Fragmentable {
-  node: <T = ArtistSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateArtist {
-  count: Int;
-}
-
-export interface AggregateArtistPromise
-  extends Promise<AggregateArtist>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateArtistSubscription
-  extends Promise<AsyncIterator<AggregateArtist>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface RecordingConnection {
-  pageInfo: PageInfo;
-  edges: RecordingEdge[];
-}
-
-export interface RecordingConnectionPromise
-  extends Promise<RecordingConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<RecordingEdge>>() => T;
-  aggregate: <T = AggregateRecordingPromise>() => T;
-}
-
-export interface RecordingConnectionSubscription
-  extends Promise<AsyncIterator<RecordingConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<RecordingEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateRecordingSubscription>() => T;
-}
-
 export interface RecordingEdge {
   node: Recording;
   cursor: String;
@@ -2480,22 +2727,6 @@ export interface RecordingEdgeSubscription
     Fragmentable {
   node: <T = RecordingSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateRecording {
-  count: Int;
-}
-
-export interface AggregateRecordingPromise
-  extends Promise<AggregateRecording>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateRecordingSubscription
-  extends Promise<AsyncIterator<AggregateRecording>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface SongConnection {
@@ -2519,272 +2750,54 @@ export interface SongConnectionSubscription
   aggregate: <T = AggregateSongSubscription>() => T;
 }
 
-export interface SongEdge {
-  node: Song;
-  cursor: String;
+export interface ArtistConnection {
+  pageInfo: PageInfo;
+  edges: ArtistEdge[];
 }
 
-export interface SongEdgePromise extends Promise<SongEdge>, Fragmentable {
-  node: <T = SongPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface SongEdgeSubscription
-  extends Promise<AsyncIterator<SongEdge>>,
+export interface ArtistConnectionPromise
+  extends Promise<ArtistConnection>,
     Fragmentable {
-  node: <T = SongSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ArtistEdge>>() => T;
+  aggregate: <T = AggregateArtistPromise>() => T;
 }
 
-export interface AggregateSong {
+export interface ArtistConnectionSubscription
+  extends Promise<AsyncIterator<ArtistConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ArtistEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateArtistSubscription>() => T;
+}
+
+export interface AggregateArtist {
   count: Int;
 }
 
-export interface AggregateSongPromise
-  extends Promise<AggregateSong>,
+export interface AggregateArtistPromise
+  extends Promise<AggregateArtist>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateSongSubscription
-  extends Promise<AsyncIterator<AggregateSong>>,
+export interface AggregateArtistSubscription
+  extends Promise<AsyncIterator<AggregateArtist>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface BatchPayload {
-  count: Long;
-}
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
 
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
-    Fragmentable {
-  count: () => Promise<Long>;
-}
+/*
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+*/
+export type Int = number;
 
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
-}
-
-export interface AlbumSubscriptionPayload {
-  mutation: MutationType;
-  node: Album;
-  updatedFields: String[];
-  previousValues: AlbumPreviousValues;
-}
-
-export interface AlbumSubscriptionPayloadPromise
-  extends Promise<AlbumSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = AlbumPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = AlbumPreviousValuesPromise>() => T;
-}
-
-export interface AlbumSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<AlbumSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = AlbumSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = AlbumPreviousValuesSubscription>() => T;
-}
-
-export interface AlbumPreviousValues {
-  id: ID_Output;
-  title: String;
-  catalogNumber?: String;
-  format?: String;
-  info?: String;
-  releaseDate?: String;
-  recordLabel: String;
-}
-
-export interface AlbumPreviousValuesPromise
-  extends Promise<AlbumPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  catalogNumber: () => Promise<String>;
-  format: () => Promise<String>;
-  info: () => Promise<String>;
-  releaseDate: () => Promise<String>;
-  recordLabel: () => Promise<String>;
-}
-
-export interface AlbumPreviousValuesSubscription
-  extends Promise<AsyncIterator<AlbumPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  catalogNumber: () => Promise<AsyncIterator<String>>;
-  format: () => Promise<AsyncIterator<String>>;
-  info: () => Promise<AsyncIterator<String>>;
-  releaseDate: () => Promise<AsyncIterator<String>>;
-  recordLabel: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ArtistSubscriptionPayload {
-  mutation: MutationType;
-  node: Artist;
-  updatedFields: String[];
-  previousValues: ArtistPreviousValues;
-}
-
-export interface ArtistSubscriptionPayloadPromise
-  extends Promise<ArtistSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ArtistPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ArtistPreviousValuesPromise>() => T;
-}
-
-export interface ArtistSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ArtistSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ArtistSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ArtistPreviousValuesSubscription>() => T;
-}
-
-export interface ArtistPreviousValues {
-  id: ID_Output;
-  name: String;
-}
-
-export interface ArtistPreviousValuesPromise
-  extends Promise<ArtistPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-}
-
-export interface ArtistPreviousValuesSubscription
-  extends Promise<AsyncIterator<ArtistPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-}
-
-export interface RecordingSubscriptionPayload {
-  mutation: MutationType;
-  node: Recording;
-  updatedFields: String[];
-  previousValues: RecordingPreviousValues;
-}
-
-export interface RecordingSubscriptionPayloadPromise
-  extends Promise<RecordingSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = RecordingPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = RecordingPreviousValuesPromise>() => T;
-}
-
-export interface RecordingSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<RecordingSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = RecordingSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = RecordingPreviousValuesSubscription>() => T;
-}
-
-export interface RecordingPreviousValues {
-  id: ID_Output;
-  producer?: String;
-  location?: String;
-  completed?: String;
-}
-
-export interface RecordingPreviousValuesPromise
-  extends Promise<RecordingPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  producer: () => Promise<String>;
-  location: () => Promise<String>;
-  completed: () => Promise<String>;
-}
-
-export interface RecordingPreviousValuesSubscription
-  extends Promise<AsyncIterator<RecordingPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  producer: () => Promise<AsyncIterator<String>>;
-  location: () => Promise<AsyncIterator<String>>;
-  completed: () => Promise<AsyncIterator<String>>;
-}
-
-export interface SongSubscriptionPayload {
-  mutation: MutationType;
-  node: Song;
-  updatedFields: String[];
-  previousValues: SongPreviousValues;
-}
-
-export interface SongSubscriptionPayloadPromise
-  extends Promise<SongSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = SongPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = SongPreviousValuesPromise>() => T;
-}
-
-export interface SongSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SongSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = SongSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SongPreviousValuesSubscription>() => T;
-}
-
-export interface SongPreviousValues {
-  id: ID_Output;
-  title: String;
-  composer?: String;
-  publisher?: String;
-  publishedDate?: String;
-  altTitle?: String;
-  instrumental?: String;
-  fromFilm?: String;
-  tribute?: String;
-}
-
-export interface SongPreviousValuesPromise
-  extends Promise<SongPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  title: () => Promise<String>;
-  composer: () => Promise<String>;
-  publisher: () => Promise<String>;
-  publishedDate: () => Promise<String>;
-  altTitle: () => Promise<String>;
-  instrumental: () => Promise<String>;
-  fromFilm: () => Promise<String>;
-  tribute: () => Promise<String>;
-}
-
-export interface SongPreviousValuesSubscription
-  extends Promise<AsyncIterator<SongPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  title: () => Promise<AsyncIterator<String>>;
-  composer: () => Promise<AsyncIterator<String>>;
-  publisher: () => Promise<AsyncIterator<String>>;
-  publishedDate: () => Promise<AsyncIterator<String>>;
-  altTitle: () => Promise<AsyncIterator<String>>;
-  instrumental: () => Promise<AsyncIterator<String>>;
-  fromFilm: () => Promise<AsyncIterator<String>>;
-  tribute: () => Promise<AsyncIterator<String>>;
-}
+export type Long = string;
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -2796,18 +2809,6 @@ export type ID_Output = string;
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
 export type String = string;
-
-/*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
-*/
-export type Int = number;
-
-/*
-The `Boolean` scalar type represents `true` or `false`.
-*/
-export type Boolean = boolean;
-
-export type Long = string;
 
 /**
  * Model Metadata

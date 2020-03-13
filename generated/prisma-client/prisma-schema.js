@@ -21,12 +21,12 @@ type AggregateSong {
 
 type Album {
   id: ID!
-  title: String!
+  title: String
   catalogNumber: String
   format: String
   info: String
   releaseDate: String
-  recordLabel: String!
+  recordLabel: String
   songs(where: SongWhereInput, orderBy: SongOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Song!]
   artists(where: ArtistWhereInput, orderBy: ArtistOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Artist!]
   recordings(where: RecordingWhereInput, orderBy: RecordingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Recording!]
@@ -40,12 +40,12 @@ type AlbumConnection {
 
 input AlbumCreateInput {
   id: ID
-  title: String!
+  title: String
   catalogNumber: String
   format: String
   info: String
   releaseDate: String
-  recordLabel: String!
+  recordLabel: String
   songs: SongCreateManyWithoutAlbumsInput
   artists: ArtistCreateManyWithoutAlbumsInput
   recordings: RecordingCreateManyWithoutAlbumsInput
@@ -68,36 +68,36 @@ input AlbumCreateManyWithoutSongsInput {
 
 input AlbumCreateWithoutArtistsInput {
   id: ID
-  title: String!
+  title: String
   catalogNumber: String
   format: String
   info: String
   releaseDate: String
-  recordLabel: String!
+  recordLabel: String
   songs: SongCreateManyWithoutAlbumsInput
   recordings: RecordingCreateManyWithoutAlbumsInput
 }
 
 input AlbumCreateWithoutRecordingsInput {
   id: ID
-  title: String!
+  title: String
   catalogNumber: String
   format: String
   info: String
   releaseDate: String
-  recordLabel: String!
+  recordLabel: String
   songs: SongCreateManyWithoutAlbumsInput
   artists: ArtistCreateManyWithoutAlbumsInput
 }
 
 input AlbumCreateWithoutSongsInput {
   id: ID
-  title: String!
+  title: String
   catalogNumber: String
   format: String
   info: String
   releaseDate: String
-  recordLabel: String!
+  recordLabel: String
   artists: ArtistCreateManyWithoutAlbumsInput
   recordings: RecordingCreateManyWithoutAlbumsInput
 }
@@ -126,12 +126,12 @@ enum AlbumOrderByInput {
 
 type AlbumPreviousValues {
   id: ID!
-  title: String!
+  title: String
   catalogNumber: String
   format: String
   info: String
   releaseDate: String
-  recordLabel: String!
+  recordLabel: String
 }
 
 input AlbumScalarWhereInput {
@@ -510,6 +510,7 @@ input AlbumWhereUniqueInput {
   id: ID
   title: String
   catalogNumber: String
+  info: String
 }
 
 type Artist {

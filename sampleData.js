@@ -1,4 +1,4 @@
-export const motownData = [
+const motownData = [
   {
     title: {
       title: "9 unidentified jazz instrumental tracks"
@@ -288,3 +288,5 @@ export const motownData = [
     ]
   }
 ];
+
+module.exports = { motownData };
