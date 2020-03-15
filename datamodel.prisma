@@ -17,21 +17,21 @@ type Artist {
   id: ID! @id
   name: String! @unique
   songs: [Song!]! 
-  albums: [Album!]! @relations(name: allAlbums) 
-  recordings: [Recording!]! @relations(name: allRecordings)
+  albums: [Album!]!
+  recordings: [Recording!]!
 }
 
 type Album {
   id: ID! @id
-  title: String @unique
+  title: String
   catalogNumber: String @unique
   format: String
   info: String @unique
   releaseDate: String
   recordLabel: String
   songs: [Song!]! 
-  artists: [Artist!]! @relations(name: allArtists)
-  recordings: [Recording!]! @relations(name: allRecordings)
+  artists: [Artist!]!
+  recordings: [Recording!]!
 }
 
 type Recording {
@@ -39,7 +39,7 @@ type Recording {
   producer: String
   location: String
   completed: String
-  artist: Artist @relations(name: allAritsts)
+  artist: Artist 
   song: Song! 
-  albums: [Album!]! @relations(name: allAlbums)
+  albums: [Album!]!
 }

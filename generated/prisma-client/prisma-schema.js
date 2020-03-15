@@ -508,7 +508,6 @@ input AlbumWhereInput {
 
 input AlbumWhereUniqueInput {
   id: ID
-  title: String
   catalogNumber: String
   info: String
 }
